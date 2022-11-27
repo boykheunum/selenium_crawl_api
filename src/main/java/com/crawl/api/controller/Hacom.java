@@ -1,15 +1,30 @@
 package com.crawl.api.controller;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.crawl.api.dto.RequestFilterUrlBatch1Dto;
+import com.crawl.api.dto.RequestFilterUrlBatch2Dto;
+import com.crawl.api.services.Batch1Service;
+import com.crawl.api.services.Batch2Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("hacom")
 public class Hacom {
-    @GetMapping("filter/sql-batch2")
-    public final String filterUrlForBatch2(){
+    @Autowired
+    private Batch1Service batch1Service;
+    @Autowired
+    private Batch2Service batch2Service;
+
+    @PostMapping("filter/sql-batch2")
+    public final String filterUrlForBatch2(@RequestBody RequestFilterUrlBatch1Dto dto) {
+        batch1Service.Batch2UrlFilter(dto);
         return "Hello world";
+    }
+
+    @PostMapping("filter/sql-batch3")
+    public final String filterUrlForBatch3(@RequestBody RequestFilterUrlBatch2Dto dto){
+        batch2Service.Batch3UrlFilter(dto);
+        return "complete filter url batch 3";
     }
 }

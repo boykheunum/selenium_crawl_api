@@ -64,6 +64,18 @@ public class BaseRepositoryCustom {
         }
     }
 
+    public <T> Integer getSelectResult(String sql, String resultSetMappingName,
+                                 Map<String, Object> parameters){
+        try {
+            Query query = createQuery(entityManager, sql, resultSetMappingName, parameters);
+            return (Integer) query.executeUpdate();
+        } finally {
+            if (entityManager != null) {
+                entityManager.close();
+            }
+        }
+    }
+
     private Query createQuery(EntityManager entityManager, String sql, String resultSetMappingName,
                               Map<String, Object> parameters) {
         Query query;
