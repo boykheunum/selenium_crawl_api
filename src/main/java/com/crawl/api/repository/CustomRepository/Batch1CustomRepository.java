@@ -11,18 +11,18 @@ import java.util.Map;
 
 @Repository
 @Transactional
-public class Batch1CustomRepository extends BaseRepositoryCustom{
+public class Batch1CustomRepository extends BaseRepositoryCustom {
     public final static String FILTER_URL_FOR_BATCH2 = "FILTER_URL_FOR_BATCH2";
 
     public void filterUrlForBatch2(RequestFilterUrlBatch1Dto dto) {
         StringBuilder sb = new StringBuilder();
         Map<String, Object> params = new HashMap<String, Object>();
         sb.append("INSERT INTO tbl_batch2_crawl_url(RobotId, ExecutionId, Url)")
-                .append("(SELECT b1.RobotId AS robotId, ExecutionId AS executionId, ")
-        .append("Url AS url FROM tbl_batch1_crawl_result AS b1 WHERE RobotId = :robotId AND ");
-        if(StringUtils.integerIsNull(dto.getExecutionId())){
+                .append("(SELECT 'HACOM02' AS robotId, ExecutionId AS executionId, ")
+                .append("Url AS url FROM tbl_batch1_crawl_result AS b1 WHERE RobotId = :robotId AND ");
+        if (StringUtils.integerIsNull(dto.getExecutionId()) || dto.getExecutionId() == 0) {
             sb.append("ExecutionId = (SELECT MAX(ExecutionId) FROM tbl_batch1_crawl_result GROUP BY ExecutionId) ");
-        } else{
+        } else {
             sb.append("ExecutionId = :executionId ");
             params.put("executionId", dto.getExecutionId());
         }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta charset="utf-8" />
@@ -10,9 +10,9 @@
   <!-- FONTAWESOME STYLES-->
   <link th:href="@{/assets/css/font-awesome.css}" rel="stylesheet" />
   <!-- CUSTOM STYLES-->
-  <link th:href="@{assets/css/custom.css}" rel="stylesheet" />
+  <link th:href="@{/assets/css/custom.css}" rel="stylesheet" />
   <!-- GOOGLE FONTS-->
-  <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans}' rel='stylesheet' type='text/css' />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
@@ -113,18 +113,69 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                 <form action="" method="post">
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">Acer</label>
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop Acer</label>
                   </div>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label" for="inlineCheckbox1">Asus</label>
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop Asus</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop Dell</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop HP</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop Lenovo</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop MSI</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop Macbook</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop LG</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop Surface</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop FUJITSU</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop nhỏ gọn, mỏng nhẹ</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop Gigabyte</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop VGS</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox1">Laptop AVITA</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <button type="submit" id="laptop" name="laptop" class="btn btn-primary">submit</button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-sm-12 col-xs-12">
-
+              
           </div>
         </div>
         <!-- /. ROW  -->
@@ -139,14 +190,14 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
   <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
   <!-- JQUERY SCRIPTS -->
   <script th:src="@{/assets/js/jquery-1.10.2.js}"></script>
-
   <!-- BOOTSTRAP SCRIPTS -->
   <script th:src="@{/assets/js/bootstrap.min.js}"></script>
   <!-- METISMENU SCRIPTS -->
   <script th:src="@{/assets/js/jquery.metisMenu.js}"></script>
   <!-- CUSTOM SCRIPTS -->
   <script th:src="@{/assets/js/custom.js}"></script>
-
+  
+  <script th:src="@{/assets/js/batch2Custom.js}"></script>
 
 </body>
 
