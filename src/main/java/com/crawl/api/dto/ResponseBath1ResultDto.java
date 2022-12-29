@@ -1,12 +1,15 @@
 package com.crawl.api.dto;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+@Data
 public class ResponseBath1ResultDto {
 
     private int executionId;
 
-    private String RobotId;
+    private String robotId;
 
     private String categoryName;
 
@@ -14,5 +17,6 @@ public class ResponseBath1ResultDto {
 
     private LocalDateTime addDate;
 
-    private LocalDateTime UpdDate;
+    private LocalDateTime updDate;
+
 }

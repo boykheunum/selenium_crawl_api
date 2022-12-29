@@ -1,5 +1,7 @@
 package com.crawl.api.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -15,51 +17,52 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tbl_batch2_crawl_result")
+@Data
 public class Batch2CrawlResultModel {
     @Id
     private int executionId;
 
-    @Column(name = "RobotId")
-    private String RobotId;
+    @Column(name = "robot_id")
+    private String robotId;
 
-    @Column(name = "CategoryName")
+    @Column(name = "category_name")
     private String categoryName;
 
-    @Column(name = "Url")
+    @Column(name = "url")
     private String url;
 
-    @Column(name = "AddDate")
+    @Column(name = "add_date")
     private LocalDateTime addDate;
 
-    @Column(name = "UpdDate")
-    private LocalDateTime UpdDate;
+    @Column(name = "upd_date")
+    private LocalDateTime updDate;
 
-    @Column(name = "ProductName")
+    @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "ProductKey")
+    @Column(name = "product_key")
     private String productKey;
 
-    @Column(name = "CPU")
-    private String CPU;
+    @Column(name = "cpu")
+    private String cpu;
 
-    @Column(name = "Ram")
-    private String Ram;
+    @Column(name = "ram")
+    private String ram;
 
-    @Column(name = "Storage")
-    private String Storage;
+    @Column(name = "storage")
+    private String storage;
 
-    @Column(name = "VGA")
-    private String VGA;
+    @Column(name = "vga")
+    private String vga;
 
-    @Column(name = "Monitor")
-    private String Monitor;
+    @Column(name = "monitor")
+    private String monitor;
 
-    @Column(name = "Status")
-    private String Status;
+    @Column(name = "status")
+    private String status;
 
-    @Column(name = "OriginalPrice")
-    private String OriginalPrice;
+    @Column(name = "original_price")
+    private String originalPrice;
 
     @Column(name = "Price")
     private String Price;

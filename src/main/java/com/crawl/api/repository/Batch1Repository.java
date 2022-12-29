@@ -9,8 +9,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+
 @Repository
+@Transactional
 public interface Batch1Repository extends JpaRepository<Batch1CrawlResultModel, Integer> {
-    @Query(name = "SELECT * FROM tbl_batch1_crawl_result WHERE RobotId = :robotId", nativeQuery = true)
-    List<ResponseBath1ResultDto> getBatch1Result(String robotId);
+    @Query(value = "SELECT * FROM tbl_batch1_crawl_result WHERE robot_id = :robotId", nativeQuery = true)
+    List<Batch1CrawlResultModel> getBatch1Result(String robotId);
 }

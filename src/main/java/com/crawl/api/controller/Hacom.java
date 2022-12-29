@@ -2,7 +2,9 @@ package com.crawl.api.controller;
 
 import com.crawl.api.dto.RequestFilterUrlBatch1Dto;
 import com.crawl.api.dto.RequestFilterUrlBatch2Dto;
+import com.crawl.api.dto.ResponseBatch2ResultDto;
 import com.crawl.api.dto.ResponseBath1ResultDto;
+import com.crawl.api.model.Batch1CrawlResultModel;
 import com.crawl.api.services.Batch1Service;
 import com.crawl.api.services.Batch2Service;
 
@@ -44,4 +46,12 @@ public class Hacom {
         model.addAttribute("batch1Result", getBatch1Result);
         return new ModelAndView("filter/Batch1HacomResult");
     }
+
+    @GetMapping("/batch2/result")
+    public final ModelAndView batch2Result(@RequestParam("type") Integer robotId, Model model){
+        List<ResponseBatch2ResultDto> getBatch2Result = batch2Service.getListBatch2Result(robotId);
+        model.addAttribute("batch2Result", getBatch2Result);
+        return new ModelAndView("filter/Batch2Result");
+    }
+
 }

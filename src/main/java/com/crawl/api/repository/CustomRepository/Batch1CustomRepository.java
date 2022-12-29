@@ -17,13 +17,13 @@ public class Batch1CustomRepository extends BaseRepositoryCustom {
     public void filterUrlForBatch2(RequestFilterUrlBatch1Dto dto) {
         StringBuilder sb = new StringBuilder();
         Map<String, Object> params = new HashMap<String, Object>();
-        sb.append("INSERT INTO tbl_batch2_crawl_url(RobotId, ExecutionId, Url)")
-                .append("(SELECT 'HACOM02' AS robotId, ExecutionId AS executionId, ")
-                .append("Url AS url FROM tbl_batch1_crawl_result AS b1 WHERE RobotId = :robotId AND ");
+        sb.append("INSERT INTO tbl_batch2_crawl_url(robot_id, execution_id, url)")
+                .append("(SELECT 'HACOM02' AS robot_id, execution_id AS executionId, ")
+                .append("url AS url FROM tbl_batch1_crawl_result AS b1 WHERE robot_id = :robotId AND ");
         if (StringUtils.integerIsNull(dto.getExecutionId()) || dto.getExecutionId() == 0) {
-            sb.append("ExecutionId = (SELECT MAX(ExecutionId) FROM tbl_batch1_crawl_result GROUP BY ExecutionId) ");
+            sb.append("execution_id = (SELECT MAX(execution_id) FROM tbl_batch1_crawl_result GROUP BY execution_id) ");
         } else {
-            sb.append("ExecutionId = :executionId ");
+            sb.append("execution_id = :executionId ");
             params.put("executionId", dto.getExecutionId());
         }
         sb.append("LIMIT :limit)");

@@ -2,6 +2,7 @@ package com.crawl.api.services;
 
 import java.util.List;
 
+import com.crawl.api.model.Batch1CrawlResultModel;
 import org.springframework.stereotype.Service;
 
 import com.crawl.api.dto.RequestFilterUrlBatch1Dto;

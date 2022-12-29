@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class RequestFilterUrlBatch1Dto {
+
     @JsonProperty(value = "execution_id")
     private int executionId;
     @JsonProperty(value = "robot_id")

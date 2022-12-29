@@ -1,5 +1,7 @@
 package com.crawl.api.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -15,23 +17,24 @@ import java.time.LocalDateTime;
         })})
 
 @Entity
+@Data
 @Table(name = "tbl_batch1_crawl_result")
 public class Batch1CrawlResultModel {
     @Id
     private int executionId;
 
-    @Column(name = "RobotId")
-    private String RobotId;
+    @Column(name = "robot_id")
+    private String robotId;
 
-    @Column(name = "CategoryName")
+    @Column(name = "category_name")
     private String categoryName;
 
-    @Column(name = "Url")
+    @Column(name = "url")
     private String url;
 
-    @Column(name = "AddDate")
+    @Column(name = "add_date")
     private LocalDateTime addDate;
 
-    @Column(name = "UpdDate")
-    private LocalDateTime UpdDate;
+    @Column(name = "upd_date")
+    private LocalDateTime updDate;
 }
