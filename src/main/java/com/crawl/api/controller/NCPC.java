@@ -1,4 +1,35 @@
 package com.crawl.api.controller;
 
+import com.crawl.api.dto.ResponseBatch2ResultDto;
+import com.crawl.api.dto.ResponseBath1ResultDto;
+import com.crawl.api.services.Batch1Service;
+import com.crawl.api.services.Batch2Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("ncpc")
 public class NCPC {
+    @Autowired
+    private Batch1Service batch1Service;
+    @Autowired
+    private Batch2Service batch2Service;
+
+    @GetMapping("/batch1/result")
+    public final ModelAndView batch1Result(@RequestParam("type") String robotId, Model model) {
+        List<ResponseBath1ResultDto> getBatch1Result = batch1Service.Batch1Result(robotId);
+        model.addAttribute("batch1Result", getBatch1Result);
+        return new ModelAndView("filter/Batch1HacomResult");
+    }
+
+    @GetMapping("/batch2/result")
+    public final ModelAndView batch2Result(@RequestParam("type") Integer robotId, Model model){
+        List<ResponseBatch2ResultDto> getBatch2Result = batch2Service.getListBatch2Result(robotId);
+        model.addAttribute("batch2Result", getBatch2Result);
+        return new ModelAndView("filter/Batch2HacomResult");
+    }
 }

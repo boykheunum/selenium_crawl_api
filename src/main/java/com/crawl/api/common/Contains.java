@@ -8,5 +8,8 @@ public class Contains {
         public static final int TYPE_HACOM_BATCH1 = 1;
         public static final int TYPE_NCPC_BATCH1 = 2;
         public static final int TYPE_HACOM_BATCH2 = 1;
+        public static final int TYPE_NCPC_BATCH2 = 2;
+
+        public static final int TYPE_NCPC_BATCH3 = 2;
     }
 }
