@@ -75,12 +75,12 @@ public class Batch2CrawlResultModel {
     @Column(name = "original_price")
     private String originalPrice;
 
-    @Column(name = "Price")
+    @Column(name = "price")
     private String Price;
 
-    @Column(name = "OperatingSystem")
+    @Column(name = "operatingSystem")
     private String OperatingSystem;
 
-    @Column(name = "Color")
+    @Column(name = "color")
     private String Color;
 }

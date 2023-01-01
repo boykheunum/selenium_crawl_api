@@ -1,15 +1,13 @@
 package com.crawl.api.controller;
 
-import com.crawl.api.dto.RequestFilterUrlBatch1Dto;
-import com.crawl.api.dto.RequestFilterUrlBatch2Dto;
-import com.crawl.api.dto.ResponseBatch2ResultDto;
-import com.crawl.api.dto.ResponseBath1ResultDto;
+import com.crawl.api.dto.*;
 import com.crawl.api.model.Batch1CrawlResultModel;
 import com.crawl.api.services.Batch1Service;
 import com.crawl.api.services.Batch2Service;
 
 import java.util.List;
 
+import com.crawl.api.services.Batch3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +20,8 @@ public class Hacom {
     private Batch1Service batch1Service;
     @Autowired
     private Batch2Service batch2Service;
+    @Autowired
+    private Batch3Service batch3Service;
 
     @PostMapping("filter/sql-batch2")
     public final String filterUrlForBatch2(@RequestBody RequestFilterUrlBatch1Dto dto) {
@@ -54,4 +54,10 @@ public class Hacom {
         return new ModelAndView("filter/Batch2HacomResult");
     }
 
+    @GetMapping("/batch3/result")
+    public final ModelAndView batch3Result(@RequestParam("type") Integer robotId, Model model){
+        List<ResponseBatch3ResultDto> getBatch3Result = batch3Service.getListBatch3Result(robotId);
+        model.addAttribute("batch3Result", getBatch3Result);
+        return new ModelAndView("filter/Batch3HacomResult");
+    }
 }
