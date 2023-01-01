@@ -125,23 +125,23 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                                        id="dataTables-example">
                                     <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Execution_ID</th>
                                         <th>Robot_ID</th>
-                                        <th>Category_Name</th>
+                                        <th>Product_Key</th>
+                                        <th>Product_Name</th>
                                         <th>Url</th>
-                                        <th>Add_Date</th>
-                                        <th>Update_Date</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <th:block th:each="item : ${batch2Result}">
                                         <tr class="odd gradeX">
+                                            <td th:text="${item.id}"></td>
                                             <td th:text="${item.executionId}"></td>
                                             <td th:text="${item.robotId}"></td>
-                                            <td th:text="${item.categoryName}"></td>
+                                            <td th:text="${item.productKey}"></td>
+                                            <td th:text="${item.productName}"></td>
                                             <td th:text="${item.url}"></td>
-                                            <td th:text="${item.addDate}"></td>
-                                            <td th:text="${item.updDate}"></td>
                                         </tr>
                                     </th:block>
                                     </tbody>
