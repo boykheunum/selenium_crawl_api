@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 
 @Data
 public class ResponseBatch2ResultDto {
+    private int id;
+
     private int executionId;
 
     private String robotId;

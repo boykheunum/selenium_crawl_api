@@ -51,7 +51,7 @@ public class Hacom {
     public final ModelAndView batch2Result(@RequestParam("type") Integer robotId, Model model){
         List<ResponseBatch2ResultDto> getBatch2Result = batch2Service.getListBatch2Result(robotId);
         model.addAttribute("batch2Result", getBatch2Result);
-        return new ModelAndView("filter/Batch2Result");
+        return new ModelAndView("filter/Batch2HacomResult");
     }
 
 }
