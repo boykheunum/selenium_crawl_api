@@ -38,6 +38,7 @@ public class Batch1ServicesImpl implements Batch1Service {
         } else if (robotId.equals(String.valueOf(Contains.TypeRobot.TYPE_NCPC_BATCH1))) {
             robotId = "NCPC";
         }
+        List<Batch1CrawlResultModel>test = batch1Repository.findAll();
         List<Batch1CrawlResultModel> result = batch1Repository.getBatch1Result(robotId);
         List<ResponseBath1ResultDto> data = ModelMapUntils.mapAll(result, ResponseBath1ResultDto.class);
         return data;

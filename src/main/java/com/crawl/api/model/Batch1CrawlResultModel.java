@@ -1,5 +1,6 @@
 package com.crawl.api.model;
 
+import com.crawl.api.model.id.Batch1CrawlResultId;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,13 +20,17 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @Table(name = "tbl_batch1_crawl_result")
+@IdClass(Batch1CrawlResultId.class)
 public class Batch1CrawlResultModel {
     @Id
+    @Column(name = "execution_id")
     private int executionId;
 
+    @Id
     @Column(name = "robot_id")
     private String robotId;
 
+    @Id
     @Column(name = "category_name")
     private String categoryName;
 
