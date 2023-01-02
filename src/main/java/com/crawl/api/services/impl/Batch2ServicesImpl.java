@@ -32,6 +32,9 @@ public class Batch2ServicesImpl implements Batch2Service {
             robotId ="HACOM02";
         } else if (type == Contains.TypeRobot.TYPE_NCPC_BATCH2) {
             robotId = "NCPC02";
+        } else if (type == Contains.TypeRobot.TYPE_ALL) {
+            List<Batch2CrawlResultModel> lBatch2Result = batch2Repository.findAll();
+            return ModelMapUntils.mapAll(lBatch2Result, ResponseBatch2ResultDto.class);
         }
         List<Batch2CrawlResultModel> lBatch2Result = batch2Repository.getBatch2Result(robotId);
 

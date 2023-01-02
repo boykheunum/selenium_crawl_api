@@ -24,7 +24,7 @@ import java.time.LocalDateTime;
 @IdClass(Batch2CrawlResultId.class)
 public class Batch2CrawlResultModel {
     @Id
-    @Column(name = "Id")
+    @Column(name = "id")
     private int id;
 
     @Id

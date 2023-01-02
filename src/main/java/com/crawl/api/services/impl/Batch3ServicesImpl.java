@@ -23,6 +23,9 @@ public class Batch3ServicesImpl implements Batch3Service {
             robotId ="HACOM03";
         } else if (type == Contains.TypeRobot.TYPE_NCPC_BATCH3) {
             robotId = "NCPC03";
+        } else if (type == Contains.TypeRobot.TYPE_ALL) {
+            List<Batch3CrawlResultModel> lBatch3Result = batch3Repository.findAll();
+            return ModelMapUntils.mapAll(lBatch3Result, ResponseBatch3ResultDto.class);
         }
         List<Batch3CrawlResultModel> lBatch3Result = batch3Repository.getBatch3Result(robotId);
 

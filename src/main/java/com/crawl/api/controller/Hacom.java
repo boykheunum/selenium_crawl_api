@@ -35,6 +35,12 @@ public class Hacom {
         return "complete filter url batch 3";
     }
 
+    @GetMapping("filter/sql-batch3/test")
+    public final String filterUrlForBatch3Test() {
+        batch2Service.Batch3UrlFilter(new RequestFilterUrlBatch2Dto());
+        return "complete filter url batch 3";
+    }
+
     @GetMapping("filter/hello")
     public final ModelAndView hello() {
         return new ModelAndView("filter/Batch2Filter");
