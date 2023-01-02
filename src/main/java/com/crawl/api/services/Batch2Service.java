@@ -9,4 +9,6 @@ public interface Batch2Service {
     void Batch3UrlFilter(RequestFilterUrlBatch2Dto dto);
 
     List<ResponseBatch2ResultDto> getListBatch2Result(Integer robotId);
+
+    void deleteAllBatch2CrawlUrls();
 }

@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 @Data
 @Table(name = "tbl_batch1_crawl_result")
 @IdClass(Batch1CrawlResultId.class)
-public class Batch1CrawlResultModel {
+public class Batch1CrawlResultModel extends BaseModel {
     @Id
     @Column(name = "execution_id")
     private int executionId;
@@ -37,9 +37,4 @@ public class Batch1CrawlResultModel {
     @Column(name = "url")
     private String url;
 
-    @Column(name = "add_date")
-    private LocalDateTime addDate;
-
-    @Column(name = "upd_date")
-    private LocalDateTime updDate;
 }
