@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "tbl_batch3_crawl_result")
 @Data
 @IdClass(Batch3CrawlResultId.class)
-public class Batch3CrawlResultModel {
+public class Batch3CrawlResultModel extends BaseModel{
     @Id
     @Column(name = "id")
     private String id;
@@ -63,12 +63,6 @@ public class Batch3CrawlResultModel {
 
     @Column(name = "category_name_3")
     private String categoryName3;
-
-    @Column(name = "add_date")
-    private String addDate;
-
-    @Column(name = "udp_date")
-    private String updDate;
 
     @Column(name = "storage")
     private String storage;

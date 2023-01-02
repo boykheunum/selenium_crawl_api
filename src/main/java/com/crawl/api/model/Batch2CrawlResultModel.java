@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 @Table(name = "tbl_batch2_crawl_result")
 @Data
 @IdClass(Batch2CrawlResultId.class)
-public class Batch2CrawlResultModel {
+public class Batch2CrawlResultModel extends BaseModel{
     @Id
     @Column(name = "id")
     private int id;
@@ -40,12 +40,6 @@ public class Batch2CrawlResultModel {
 
     @Column(name = "url")
     private String url;
-
-    @Column(name = "add_date")
-    private LocalDateTime addDate;
-
-    @Column(name = "upd_date")
-    private LocalDateTime updDate;
 
     @Column(name = "product_name")
     private String productName;

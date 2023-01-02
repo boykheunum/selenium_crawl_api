@@ -37,7 +37,8 @@ public class Hacom {
 
     @GetMapping("filter/sql-batch3/test")
     public final String filterUrlForBatch3Test() {
-        batch2Service.Batch3UrlFilter(new RequestFilterUrlBatch2Dto());
+        //batch2Service.Batch3UrlFilter(new RequestFilterUrlBatch2Dto());
+        batch2Service.deleteAllBatch2CrawlUrls();
         return "complete filter url batch 3";
     }
 
