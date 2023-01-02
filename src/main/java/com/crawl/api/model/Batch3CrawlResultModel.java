@@ -11,7 +11,7 @@ import javax.persistence.*;
 @IdClass(Batch3CrawlResultId.class)
 public class Batch3CrawlResultModel {
     @Id
-    @Column(name = "Id")
+    @Column(name = "id")
     private String id;
 
     @Id
