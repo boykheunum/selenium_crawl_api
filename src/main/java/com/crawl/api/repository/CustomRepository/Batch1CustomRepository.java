@@ -19,9 +19,9 @@ public class Batch1CustomRepository extends BaseRepositoryCustom {
         Map<String, Object> params = new HashMap<String, Object>();
         sb.append("INSERT INTO tbl_batch2_crawl_url(robot_id, execution_id, url) ");
         if (dto.getRobotId().equals("NCPC")) {
-            sb.append("(SELECT 'NCPC02' AS 'robot_id', execution_id AS 'executionId', ");
+            sb.append("(SELECT 'NCPC02' AS 'robot_id', execution_id AS executionId, ");
         } else {
-            sb.append("(SELECT 'HACOM02' AS 'robot_id', execution_id AS 'executionId', ");
+            sb.append("(SELECT 'HACOM02' AS 'robot_id', execution_id AS executionId, ");
         }
         sb.append("url AS 'url' FROM tbl_batch1_crawl_result AS b1 WHERE robot_id = :robotId AND ");
         if (StringUtils.integerIsNull(dto.getExecutionId()) || dto.getExecutionId() == 0) {

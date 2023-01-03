@@ -62,6 +62,13 @@ public class Hacom {
         return new ModelAndView("filter/Batch2HacomResult");
     }
 
+    @PostMapping("/batch2/result/json")
+    public final ModelAndView batch2ResultFilterJson(@RequestBody ResponseBatch2ResultDto dto, Model model){
+        List<ResponseBatch2ResultDto> getBatch2Result = batch2Service.getListBatch2ResultFilter(dto);
+        model.addAttribute("batch2Result", getBatch2Result);
+        return new ModelAndView("filter/Batch2HacomResult");
+    }
+
     @GetMapping("/batch3/result")
     public final ModelAndView batch3Result(@RequestParam("type") Integer robotId, Model model){
         List<ResponseBatch3ResultDto> getBatch3Result = batch3Service.getListBatch3Result(robotId);

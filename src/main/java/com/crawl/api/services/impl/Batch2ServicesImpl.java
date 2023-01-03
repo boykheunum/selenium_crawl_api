@@ -47,6 +47,13 @@ public class Batch2ServicesImpl implements Batch2Service {
     }
 
     @Override
+    public List<ResponseBatch2ResultDto> getListBatch2ResultFilter(ResponseBatch2ResultDto dto) {
+        List<Batch2CrawlResultModel> lBatch2Result = batch2Custom.getBatch2ResultFilter(dto);
+
+        return ModelMapUntils.mapAll(lBatch2Result, ResponseBatch2ResultDto.class);
+    }
+
+    @Override
     public void deleteAllBatch2CrawlUrls() {
         batch2CrawlUrlRepository.deleteAll();
     }
