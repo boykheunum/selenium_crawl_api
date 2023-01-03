@@ -31,4 +31,9 @@ public class Batch3ServicesImpl implements Batch3Service {
 
         return ModelMapUntils.mapAll(lBatch3Result, ResponseBatch3ResultDto.class);
     }
+
+    @Override
+    public void deleteAllBatch3CrawlLists() {
+
+    }
 }

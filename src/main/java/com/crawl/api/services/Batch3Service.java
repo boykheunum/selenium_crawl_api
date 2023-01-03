@@ -7,4 +7,6 @@ import java.util.List;
 public interface Batch3Service {
 
     List<ResponseBatch3ResultDto> getListBatch3Result(Integer robotId);
+
+    void deleteAllBatch3CrawlLists();
 }

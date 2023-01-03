@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface Batch3Repository extends JpaRepository<Batch3CrawlResultModel, Batch3CrawlResultId> {
+public interface Batch3Repository extends JpaRepository<Batch3CrawlResultModel, String> {
     @Query(value = "SELECT * FROM tbl_batch3_crawl_result WHERE robot_id = :robotId", nativeQuery = true)
     List<Batch3CrawlResultModel> getBatch3Result(String robotId);
 }
