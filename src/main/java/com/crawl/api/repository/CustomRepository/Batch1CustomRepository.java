@@ -17,9 +17,13 @@ public class Batch1CustomRepository extends BaseRepositoryCustom {
     public void filterUrlForBatch2(RequestFilterUrlBatch1Dto dto) {
         StringBuilder sb = new StringBuilder();
         Map<String, Object> params = new HashMap<String, Object>();
-        sb.append("INSERT INTO tbl_batch2_crawl_url(robot_id, execution_id, url) ")
-                .append("(SELECT 'HACOM02' AS 'robot_id', execution_id AS 'executionId', ")
-                .append("url AS 'url' FROM tbl_batch1_crawl_result AS b1 WHERE robot_id = :robotId AND ");
+        sb.append("INSERT INTO tbl_batch2_crawl_url(robot_id, execution_id, url) ");
+        if (dto.getRobotId().equals("NCPC")) {
+            sb.append("(SELECT 'NCPC02' AS 'robot_id', execution_id AS 'executionId', ");
+        } else {
+            sb.append("(SELECT 'HACOM02' AS 'robot_id', execution_id AS 'executionId', ");
+        }
+        sb.append("url AS 'url' FROM tbl_batch1_crawl_result AS b1 WHERE robot_id = :robotId AND ");
         if (StringUtils.integerIsNull(dto.getExecutionId()) || dto.getExecutionId() == 0) {
             sb.append("execution_id = (SELECT MAX(execution_id) FROM tbl_batch1_crawl_result) ");
         } else {

@@ -25,6 +25,7 @@ public class Hacom {
 
     @PostMapping("filter/sql-batch2")
     public final String filterUrlForBatch2(@RequestBody RequestFilterUrlBatch1Dto dto) {
+        batch2Service.deleteAllBatch2CrawlUrls();
         batch1Service.Batch2UrlFilter(dto);
         return "Hello world";
     }
