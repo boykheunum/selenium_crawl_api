@@ -6,7 +6,8 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@SqlResultSetMapping(name = "FILTER_URL_FOR_BATCH3", classes = {@ConstructorResult(
+
+@SqlResultSetMapping(name = "FILTER_URL_FOR_BATCH3", classes = {@ConstructorResult(//TODO
         targetClass = com.crawl.api.dto.RequestFilterUrlBatch1Dto.class,
         columns = {
                 @ColumnResult(name = "Id", type = Integer.class),
@@ -16,6 +17,29 @@ import java.time.LocalDateTime;
                 @ColumnResult(name = "url", type = String.class),
                 @ColumnResult(name = "add_date", type = String.class),
                 @ColumnResult(name = "udp_date", type = String.class)
+        })})
+@SqlResultSetMapping(name = "FILTER_RESULT_FOR_BATCH2", classes = {@ConstructorResult(
+        targetClass = com.crawl.api.dto.ResponseBatch2ResultDto.class,
+        columns = {
+                @ColumnResult(name = "id", type = Integer.class),
+                @ColumnResult(name = "executionId", type = Integer.class),
+                @ColumnResult(name = "robotId", type = String.class),
+                @ColumnResult(name = "categoryName", type = String.class),
+                @ColumnResult(name = "url", type = String.class),
+                @ColumnResult(name = "addDate", type = LocalDateTime.class),
+                @ColumnResult(name = "updDate", type = LocalDateTime.class),
+                @ColumnResult(name = "productName", type = String.class),
+                @ColumnResult(name = "productKey", type = String.class),
+                @ColumnResult(name = "cpu", type = String.class),
+                @ColumnResult(name = "ram", type = String.class),
+                @ColumnResult(name = "storage", type = String.class),
+                @ColumnResult(name = "vga", type = String.class),
+                @ColumnResult(name = "monitor", type = String.class),
+                @ColumnResult(name = "status", type = String.class),
+                @ColumnResult(name = "originalPrice", type = String.class),
+                @ColumnResult(name = "price", type = String.class),
+                @ColumnResult(name = "operatingSystem", type = String.class),
+                @ColumnResult(name = "color", type = String.class)
         })})
 
 @Entity
