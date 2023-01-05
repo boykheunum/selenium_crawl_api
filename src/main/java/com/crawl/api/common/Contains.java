@@ -13,4 +13,23 @@ public class Contains {
         public static final int TYPE_NCPC_BATCH3 = 2;
         public static final int TYPE_ALL = 3;
     }
+    public static final class RegexString {
+        public static final String DATE_TIME = "[0-9]{4}-[0-9]{2}-[0-9]{2}( [0-9]{2}:[0-9]{2}:[0-9]{2})?";
+        public static final String MONEY = "[0-9]{1,3}([,][0-9]{3}){0,}([.][0-9]+)?";
+        public static final String MONEY2 = "[0-9]{1,3}([.][0-9]{3}){0,}([,][0-9]+)?";
+        public static final String NUMBER = "[0-9]{1,}([.][0-9]+)?";
+    }
+    public static final class ConvertString {
+        public static final double getStringToMoney(String str) {
+            if (str.matches(RegexString.NUMBER)) return Double.parseDouble(str);
+            if (str.matches(RegexString.MONEY)) {
+                str = str.replaceAll(",", "");
+                return Double.parseDouble(str);
+            } else if (str.matches(RegexString.MONEY2)) {
+                str = str.replaceAll("[.]", "").replace(",",".");
+                return Double.parseDouble(str);
+            }
+            return -1;
+        }
+    }
 }

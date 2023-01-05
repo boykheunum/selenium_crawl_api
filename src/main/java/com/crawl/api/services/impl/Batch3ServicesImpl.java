@@ -4,6 +4,7 @@ import com.crawl.api.common.Contains;
 import com.crawl.api.common.untils.ModelMapUntils;
 import com.crawl.api.dto.ResponseBatch3ResultDto;
 import com.crawl.api.model.Batch3CrawlResultModel;
+import com.crawl.api.repository.Batch3CrawlListRepository;
 import com.crawl.api.repository.Batch3Repository;
 import com.crawl.api.services.Batch3Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ import java.util.List;
 public class Batch3ServicesImpl implements Batch3Service {
     @Autowired
     private Batch3Repository batch3Repository;
+
+    @Autowired
+    private Batch3CrawlListRepository batch3CrawlListRepository;
 
     @Override
     public List<ResponseBatch3ResultDto> getListBatch3Result(Integer type) {
@@ -34,6 +38,6 @@ public class Batch3ServicesImpl implements Batch3Service {
 
     @Override
     public void deleteAllBatch3CrawlLists() {
-
+        batch3CrawlListRepository.deleteAll();
     }
 }

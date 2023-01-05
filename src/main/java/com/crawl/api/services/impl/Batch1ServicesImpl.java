@@ -2,7 +2,9 @@ package com.crawl.api.services.impl;
 
 import com.crawl.api.common.Contains;
 import com.crawl.api.common.untils.ModelMapUntils;
+import com.crawl.api.dto.RequestFilterUrlBatch1CheckboxDto;
 import com.crawl.api.dto.RequestFilterUrlBatch1Dto;
+import com.crawl.api.dto.ResponseBatch2ResultDto;
 import com.crawl.api.dto.ResponseBath1ResultDto;
 import com.crawl.api.model.Batch1CrawlResultModel;
 import com.crawl.api.repository.Batch1Repository;
@@ -28,6 +30,11 @@ public class Batch1ServicesImpl implements Batch1Service {
     @Override
     public void Batch2UrlFilter(RequestFilterUrlBatch1Dto dto) {
         batch1Custom.filterUrlForBatch2(dto);
+    }
+
+    @Override
+    public void Batch2UrlFilterCheckbox(RequestFilterUrlBatch1CheckboxDto dto) {
+        batch1Custom.filterUrlForBatch2Checkbox(dto);
     }
 
     @Override

@@ -30,16 +30,24 @@ public class Hacom {
         return "Hello world";
     }
 
+    @PostMapping("filter/sql-batch2/checkbox")
+    public final String filterUrlForBatch2Checkbox(@RequestBody RequestFilterUrlBatch1CheckboxDto dto) {
+        batch2Service.deleteAllBatch2CrawlUrls();
+        batch1Service.Batch2UrlFilterCheckbox(dto);
+        return "Hello world";
+    }
+
     @PostMapping("filter/sql-batch3")
     public final String filterUrlForBatch3(@RequestBody RequestFilterUrlBatch2Dto dto) {
+        batch3Service.deleteAllBatch3CrawlLists();
         batch2Service.Batch3UrlFilter(dto);
         return "complete filter url batch 3";
     }
 
-    @GetMapping("filter/sql-batch3/test")
-    public final String filterUrlForBatch3Test() {
-        //batch2Service.Batch3UrlFilter(new RequestFilterUrlBatch2Dto());
-        batch2Service.deleteAllBatch2CrawlUrls();
+    @PostMapping("filter/sql-batch3/checkbox")
+    public final String filterUrlForBatch3Checkbox(@RequestBody RequestFilterUrlBatch2CheckboxDto dto) {
+        batch3Service.deleteAllBatch3CrawlLists();
+        batch2Service.Batch3UrlFilterCheckbox(dto);
         return "complete filter url batch 3";
     }
 
