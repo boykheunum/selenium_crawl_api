@@ -43,7 +43,7 @@ public class Batch2CustomRepository extends BaseRepositoryCustom{
         StringBuilder sb = new StringBuilder();
         Map<String, Object> params = new HashMap<String, Object>();
 
-        sb.append("INSERT IGNORE INTO tbl_batch3_crawl_list(robot_id, execution_id, url, add_date, upd_date) (SELECT b2.robot_id, b2.execution_id, b2.url, NOW(), NOW() ")
+        sb.append("INSERT IGNORE INTO tbl_batch3_crawl_list(robot_id, execution_id, url, add_date, upd_date) (SELECT 'HACOM03', b2.execution_id, b2.url, NOW(), NOW() ")
                 .append("FROM tbl_batch2_crawl_result AS b2 WHERE b2.robot_id = :robotId AND ");
         if (StringUtils.integerIsNull(dto.getExecutionId()) || dto.getExecutionId() == 0) {
             sb.append("execution_id = (SELECT MAX(execution_id) FROM tbl_batch2_crawl_result WHERE robot_id = :robotId) ");

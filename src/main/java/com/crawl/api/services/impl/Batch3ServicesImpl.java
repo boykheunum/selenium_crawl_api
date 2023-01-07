@@ -6,6 +6,7 @@ import com.crawl.api.dto.ResponseBatch3ResultDto;
 import com.crawl.api.model.Batch3CrawlResultModel;
 import com.crawl.api.repository.Batch3CrawlListRepository;
 import com.crawl.api.repository.Batch3Repository;
+import com.crawl.api.repository.CustomRepository.Batch3CustomRepository;
 import com.crawl.api.services.Batch3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,8 @@ public class Batch3ServicesImpl implements Batch3Service {
 
     @Autowired
     private Batch3CrawlListRepository batch3CrawlListRepository;
+    @Autowired
+    private Batch3CustomRepository batch3CustomRepository;
 
     @Override
     public List<ResponseBatch3ResultDto> getListBatch3Result(Integer type) {
@@ -39,5 +42,11 @@ public class Batch3ServicesImpl implements Batch3Service {
     @Override
     public void deleteAllBatch3CrawlLists() {
         batch3CrawlListRepository.deleteAll();
+    }
+
+    @Override
+    public List<ResponseBatch3ResultDto> getChartData() {
+        List<ResponseBatch3ResultDto> data = batch3CustomRepository.getDataFromBatch3();
+        return data;
     }
 }

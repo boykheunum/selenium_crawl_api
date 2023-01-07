@@ -83,4 +83,14 @@ public class Hacom {
         model.addAttribute("batch3Result", getBatch3Result);
         return new ModelAndView("filter/Batch3HacomResult");
     }
+
+    @GetMapping("/chart")
+    public ModelAndView chart(){
+        return new ModelAndView("statistic/chart");
+    }
+
+    @PostMapping("/chart/get_chart_data")
+    public List<ResponseBatch3ResultDto> getChartData(){
+        return batch3Service.getChartData();
+    }
 }

@@ -4,6 +4,14 @@ import lombok.Data;
 
 @Data
 public class ResponseBatch3ResultDto {
+    public ResponseBatch3ResultDto(String executionId, String robotId, String price, String originPrice, String productKey){
+        this.executionId = executionId;
+        this.robotId = robotId;
+        this.price = price;
+        this.originalPrice = originPrice;
+        this.productKey = productKey;
+    }
+
     private String id;
 
     private String executionId;
