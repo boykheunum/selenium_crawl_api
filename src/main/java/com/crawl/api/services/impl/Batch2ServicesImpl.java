@@ -63,4 +63,5 @@ public class Batch2ServicesImpl implements Batch2Service {
     public void deleteAllBatch2CrawlUrls() {
         batch2CrawlUrlRepository.deleteAll();
     }
+
 }

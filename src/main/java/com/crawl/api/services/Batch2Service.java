@@ -16,4 +16,5 @@ public interface Batch2Service {
     List<ResponseBatch2ResultDto> getListBatch2ResultFilter(ResponseBatch2ResultDto dto);
 
     void deleteAllBatch2CrawlUrls();
+
 }

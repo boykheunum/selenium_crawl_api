@@ -93,4 +93,14 @@ public class Hacom {
     public List<ResponseBatch3ResultDto> getChartData(){
         return batch3Service.getChartData();
     }
+
+    @PostMapping("/excel_export")
+    public void execlExport(){
+
+    }
+
+    @PostMapping("/csv_export")
+    public void csvExport(@RequestBody RequestDataExportDto data){
+        batch1Service.exportBatch1Csv(data);
+    }
 }
