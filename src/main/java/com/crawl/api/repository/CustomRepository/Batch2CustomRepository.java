@@ -43,7 +43,7 @@ public class Batch2CustomRepository extends BaseRepositoryCustom{
         StringBuilder sb = new StringBuilder();
         Map<String, Object> params = new HashMap<String, Object>();
 
-        sb.append("INSERT IGNORE INTO tbl_batch3_crawl_list(robot_id, execution_id, url, add_date, upd_date) (SELECT 'HACOM03', b2.execution_id, b2.url, NOW(), NOW() ")
+        sb.append("INSERT IGNORE INTO tbl_batch3_crawl_list(robot_id, execution_id, url, add_date, upd_date) (SELECT :robotName, b2.execution_id, b2.url, NOW(), NOW() ")
                 .append("FROM tbl_batch2_crawl_result AS b2 WHERE b2.robot_id = :robotId AND ");
         if (StringUtils.integerIsNull(dto.getExecutionId()) || dto.getExecutionId() == 0) {
             sb.append("execution_id = (SELECT MAX(execution_id) FROM tbl_batch2_crawl_result WHERE robot_id = :robotId) ");
@@ -86,6 +86,13 @@ public class Batch2CustomRepository extends BaseRepositoryCustom{
 //            sb.append(" AND DATEDIFF(add_date, :updDateEnd) <= 0 ");
 //            params.put("updDateEnd", dto.getUpdDateEnd());
 //        }
+        String robotName = "HACOM03";
+        if (dto.getRobotId().equals("HACOM02")) {
+            robotName = "HACOM03";
+        } else if (dto.getRobotId().equals("NCPC02")) {
+            robotName = "NCPC03";
+        }
+        params.put("robotName", robotName);
         if (dto.getOriginalPriceMin() != null && !dto.getOriginalPriceMin().isEmpty()) {
             double money = Contains.ConvertString.getStringToMoney(dto.getOriginalPriceMin());
             if (money > -1) {
@@ -136,10 +143,6 @@ public class Batch2CustomRepository extends BaseRepositoryCustom{
             if (dto.getRobotId() != null && !dto.getRobotId().equals("")) {
                 sb.append("AND robot_id = :robotId ");
                 params.put("robotId", dto.getRobotId());
-            }
-            if (dto.getCategoryName() != null && !dto.getCategoryName().equals("")) {
-                sb.append("AND category_name = :categoryName ");
-                params.put("categoryName", dto.getCategoryName());
             }
             if (dto.getProductName() != null && !dto.getProductName().equals("")) {
                 sb.append("AND product_name = :productName ");

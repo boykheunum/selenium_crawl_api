@@ -20,9 +20,6 @@ public class ResponseBatch2ResultDto {
     @JsonProperty(value = "robot_id")
     private String robotId;
 
-    @JsonProperty(value = "category_name")
-    private String categoryName;
-
     @JsonProperty(value = "url")
     private String url;
 

@@ -24,7 +24,6 @@ import java.time.LocalDateTime;
                 @ColumnResult(name = "id", type = Integer.class),
                 @ColumnResult(name = "executionId", type = Integer.class),
                 @ColumnResult(name = "robotId", type = String.class),
-                @ColumnResult(name = "categoryName", type = String.class),
                 @ColumnResult(name = "url", type = String.class),
                 @ColumnResult(name = "addDate", type = LocalDateTime.class),
                 @ColumnResult(name = "updDate", type = LocalDateTime.class),
@@ -58,9 +57,6 @@ public class Batch2CrawlResultModel extends BaseModel{
     @Id
     @Column(name = "robot_id")
     private String robotId;
-
-    @Column(name = "category_name")
-    private String categoryName;
 
     @Column(name = "url")
     private String url;

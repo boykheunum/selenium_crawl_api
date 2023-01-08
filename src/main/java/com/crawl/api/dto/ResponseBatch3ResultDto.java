@@ -1,8 +1,12 @@
 package com.crawl.api.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ResponseBatch3ResultDto {
     public ResponseBatch3ResultDto(String executionId, String robotId, String price, String originPrice, String productKey){
         this.executionId = executionId;
