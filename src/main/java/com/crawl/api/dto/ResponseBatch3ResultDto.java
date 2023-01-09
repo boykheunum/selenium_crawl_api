@@ -18,14 +18,15 @@ public class ResponseBatch3ResultDto {
         this.productKey = productKey;
     }
 
-    public ResponseBatch3ResultDto(String executionId, String robotId,
-                                   String view, String price, String originPrice, String productKey){
+    public ResponseBatch3ResultDto(String executionId, String robotId, String view, String price, String originPrice,
+                                   String productKey, String productName){
         this.executionId = executionId;
         this.robotId = robotId;
         this.price = price;
         this.originalPrice = originPrice;
         this.productKey = productKey;
         this.view = view;
+        this.productName = productName;
     }
 
     private String id;
@@ -71,4 +72,6 @@ public class ResponseBatch3ResultDto {
     private String keyboard;
 
     private String url;
+
+    private String productName;
 }

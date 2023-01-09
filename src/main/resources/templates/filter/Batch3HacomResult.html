@@ -31,11 +31,6 @@
             </button>
             <a class="navbar-brand" href="index.html">Binary admin</a>
         </div>
-        <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a>
-        </div>
     </nav>
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
@@ -45,54 +40,55 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                     <img th:src="@{/assets/img/find_user.png}" class="user-image img-responsive"/>
                 </li>
                 <li>
-                    <a href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                    <a th:href="@{/hacom/chart}"><i class="fa fa-bar-chart-o fa-3x"></i> Biểu đồ</a>
                 </li>
                 <li>
-                    <a href="ui.html"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
-                </li>
-                <li>
-                    <a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Tabs & Panels</a>
-                </li>
-                <li>
-                    <a href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
-                </li>
-                <li>
-                    <a class="active-menu" href="table.html"><i class="fa fa-table fa-3x"></i> Table Examples</a>
-                </li>
-                <li>
-                    <a href="form.html"><i class="fa fa-edit fa-3x"></i> Forms </a>
-                </li>
-
-                <li>
-                    <a href="#"><i class="fa fa-sitemap fa-3x"></i> Multi-Level Dropdown<span
+                    <a href="#"><i class="fa fa-table fa-3x"></i> Chi tiết các bảng<span
                             class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Second Level Link</a>
-                        </li>
-                        <li>
-                            <a href="#">Second Level Link</a>
-                        </li>
-                        <li>
-                            <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                            <a href="#">Kết quả batch 1</a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="#">Third Level Link</a>
+                                    <a th:href="@{/hacom/batch1/result?type=3}">Tất cả</a>
                                 </li>
                                 <li>
-                                    <a href="#">Third Level Link</a>
+                                    <a th:href="@{/hacom/batch1/result?type=1}">Hacom</a>
                                 </li>
                                 <li>
-                                    <a href="#">Third Level Link</a>
+                                    <a th:href="@{/hacom/batch1/result?type=2}">Nguyen Cong PC</a>
                                 </li>
-
                             </ul>
-
+                        </li>
+                        <li>
+                            <a href="#">Kết quả batch 2</a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a th:href="@{/hacom/batch2/result?type=3}">Tất cả</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/hacom/batch2/result?type=1}">Hacom</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/hacom/batch2/result?type=2}">Nguyen Cong PC</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Kết quả batch 3<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a th:href="@{/hacom/batch3/result?type=3}">Tất cả</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/hacom/batch3/result?type=1}">Hacom</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/hacom/batch3/result?type=2}">Nguyen Cong PC</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
                 </li>
             </ul>
 
@@ -104,9 +100,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Table Examples</h2>
-                    <h5>Welcome Jhon Deo , Love to see you back. </h5>
-
+                    <h2>Kết quả batch 3</h2>
                 </div>
             </div>
             <!-- /. ROW  -->
@@ -117,7 +111,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Advanced Tables
+                            Danh sách kết quả
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
