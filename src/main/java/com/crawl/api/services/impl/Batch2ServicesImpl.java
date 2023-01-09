@@ -2,6 +2,7 @@ package com.crawl.api.services.impl;
 
 import com.crawl.api.common.Contains;
 import com.crawl.api.common.untils.ModelMapUntils;
+import com.crawl.api.dto.RequestFilterUrlBatch2CheckboxDto;
 import com.crawl.api.dto.RequestFilterUrlBatch2Dto;
 import com.crawl.api.dto.ResponseBatch2ResultDto;
 import com.crawl.api.model.Batch2CrawlResultModel;
@@ -31,6 +32,11 @@ public class Batch2ServicesImpl implements Batch2Service {
     }
 
     @Override
+    public void Batch3UrlFilterCheckbox(RequestFilterUrlBatch2CheckboxDto dto) {
+        batch2Custom.filterUrlForBatch3Checkbox(dto);
+    }
+
+    @Override
     public List<ResponseBatch2ResultDto> getListBatch2Result(Integer type) {
         String robotId = "HACOM02";
         if (type == Contains.TypeRobot.TYPE_HACOM_BATCH2) {
@@ -57,4 +63,5 @@ public class Batch2ServicesImpl implements Batch2Service {
     public void deleteAllBatch2CrawlUrls() {
         batch2CrawlUrlRepository.deleteAll();
     }
+
 }

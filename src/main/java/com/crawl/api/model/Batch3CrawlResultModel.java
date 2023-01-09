@@ -4,12 +4,24 @@ import com.crawl.api.model.id.Batch3CrawlResultId;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+
+@SqlResultSetMapping(name = "DATA_FOR_CHART", classes = {@ConstructorResult(
+        targetClass = com.crawl.api.dto.ResponseBatch3ResultDto.class,
+        columns = {
+                @ColumnResult(name = "executionId", type = String.class),
+                @ColumnResult(name = "robotId", type = String.class),
+                @ColumnResult(name = "view", type = String.class),
+                @ColumnResult(name = "price", type = String.class),
+                @ColumnResult(name = "originPrice", type = String.class),
+                @ColumnResult(name = "productKey", type = String.class)
+        })})
 
 @Entity
 @Table(name = "tbl_batch3_crawl_result")
 @Data
 @IdClass(Batch3CrawlResultId.class)
-public class Batch3CrawlResultModel extends BaseModel{
+public class Batch3CrawlResultModel{
     @Id
     @Column(name = "id")
     private String id;
@@ -72,4 +84,12 @@ public class Batch3CrawlResultModel extends BaseModel{
 
     @Column(name = "url")
     private String url;
+    @Column(name = "add_date")
+    private String addDate;
+
+    @Column(name = "upd_date")
+    private String updDate;
+
+    @Column(name = "product_name")
+    private String productName;
 }

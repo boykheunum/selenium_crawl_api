@@ -1,9 +1,6 @@
 package com.crawl.api.controller;
 
-import com.crawl.api.dto.RequestFilterUrlBatch1Dto;
-import com.crawl.api.dto.ResponseBatch2ResultDto;
-import com.crawl.api.dto.ResponseBatch3ResultDto;
-import com.crawl.api.dto.ResponseBath1ResultDto;
+import com.crawl.api.dto.*;
 import com.crawl.api.services.Batch1Service;
 import com.crawl.api.services.Batch2Service;
 import com.crawl.api.services.Batch3Service;
@@ -29,6 +26,27 @@ public class NCPC {
         batch2Service.deleteAllBatch2CrawlUrls();
         batch1Service.Batch2UrlFilter(dto);
         return "Hello world";
+    }
+
+    @PostMapping("filter/sql-batch2/checkbox")
+    public final String filterUrlForBatch2Checkbox(@RequestBody RequestFilterUrlBatch1CheckboxDto dto) {
+        batch2Service.deleteAllBatch2CrawlUrls();
+        batch1Service.Batch2UrlFilterCheckbox(dto);
+        return "Hello world";
+    }
+
+    @PostMapping("filter/sql-batch3")
+    public final String filterUrlForBatch3(@RequestBody RequestFilterUrlBatch2Dto dto) {
+        batch3Service.deleteAllBatch3CrawlLists();
+        batch2Service.Batch3UrlFilter(dto);
+        return "complete filter url batch 3";
+    }
+
+    @PostMapping("filter/sql-batch3/checkbox")
+    public final String filterUrlForBatch3Checkbox(@RequestBody RequestFilterUrlBatch2CheckboxDto dto) {
+        batch3Service.deleteAllBatch3CrawlLists();
+        batch2Service.Batch3UrlFilterCheckbox(dto);
+        return "complete filter url batch 3";
     }
 
     @GetMapping("/batch1/result")

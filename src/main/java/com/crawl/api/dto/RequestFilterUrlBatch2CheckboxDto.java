@@ -1,24 +1,21 @@
 package com.crawl.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ResponseBatch2ResultDto {
-
-    private int id;
+public class RequestFilterUrlBatch2CheckboxDto {
 
     @JsonProperty(value = "execution_id")
     private int executionId;
 
     @JsonProperty(value = "robot_id")
     private String robotId;
+
+    @JsonProperty(value = "category_name")
+    private String categoryName;
 
     @JsonProperty(value = "url")
     private String url;
@@ -28,6 +25,18 @@ public class ResponseBatch2ResultDto {
 
     @JsonProperty(value = "upd_date")
     private LocalDateTime updDate;
+
+    @JsonProperty(value = "add_date_start")
+    private String addDateStart;
+
+    @JsonProperty(value = "upd_date_start")
+    private String updDateStart;
+
+    @JsonProperty(value = "add_date_end")
+    private String addDateEnd;
+
+    @JsonProperty(value = "upd_date_end")
+    private String updDateEnd;
 
     @JsonProperty(value = "product_name")
     private String productName;
@@ -56,8 +65,20 @@ public class ResponseBatch2ResultDto {
     @JsonProperty(value = "original_price")
     private String originalPrice;
 
+    @JsonProperty(value = "original_price_min")
+    private String originalPriceMin;
+
+    @JsonProperty(value = "original_price_max")
+    private String originalPriceMax;
+
     @JsonProperty(value = "price")
     private String Price;
+
+    @JsonProperty(value = "price_min")
+    private String priceMin;
+
+    @JsonProperty(value = "price_max")
+    private String priceMax;
 
     @JsonProperty(value = "operating_system")
     private String OperatingSystem;
