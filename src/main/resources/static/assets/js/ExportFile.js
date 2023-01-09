@@ -16,6 +16,15 @@ $(document).ready(function() {
                 data:JSON.stringify(data),
             })
         })
+
+        $("#export_excel").click(function(){
+            $.ajax({
+                type: "POST",
+                url:"/hacom/excel_export",
+                contentType: "application/json",
+                data:JSON.stringify(data),
+            })
+        })
     }
 
 

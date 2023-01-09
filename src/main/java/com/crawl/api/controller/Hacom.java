@@ -97,8 +97,8 @@ public class Hacom {
     }
 
     @PostMapping("/excel_export")
-    public void execlExport(){
-
+    public void execlExport(@RequestBody RequestDataExportDto data){
+        batch1Service.exportBatch1Excel(data);
     }
 
     @PostMapping("/csv_export")

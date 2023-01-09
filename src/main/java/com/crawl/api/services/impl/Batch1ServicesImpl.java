@@ -9,9 +9,7 @@ import com.crawl.api.repository.Batch1Repository;
 import com.crawl.api.repository.CustomRepository.Batch1CustomRepository;
 import com.crawl.api.services.Batch1Service;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,6 +25,8 @@ import com.crawl.api.services.Batch3Service;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.el.stream.Stream;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,7 +69,146 @@ public class Batch1ServicesImpl implements Batch1Service {
     }
 
     @Override
-    public void exportBatch1Excel() {
+    public void exportBatch1Excel(RequestDataExportDto data) {
+        String name = "HACOM_AND_NCPC";
+        if (data.getType().equals(String.valueOf(Contains.TypeRobot.TYPE_HACOM_BATCH1))) {
+            name = "HACOM";
+        } else if (data.getType().equals(String.valueOf(Contains.TypeRobot.TYPE_NCPC_BATCH1))) {
+            name = "NCPC";
+        }
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet("Employee");
+        Font headerFont = workbook.createFont();
+        headerFont.setBold(true);
+        headerFont.setFontHeightInPoints((short) 14);
+        headerFont.setColor(IndexedColors.RED.getIndex());
+
+        CellStyle headerCellStyle = workbook.createCellStyle();
+        headerCellStyle.setFont(headerFont);
+
+        Row headerRow = sheet.createRow(0);
+
+// Create cells
+        String[] columns = null;
+        if (data.getType().equals(String.valueOf(Contains.TypeRobot.TYPE_HACOM_BATCH1))) {
+            columns = new String[]{"robot_id", "category_name", "execution_id", "url", "add_date", "upd_date"};
+        } else if (data.getType().equals(String.valueOf(Contains.TypeRobot.TYPE_NCPC_BATCH1))) {
+            columns = new String[]{"execution_id", "robot_id", "url", "product_name", "product_key", "cpu", "ram", "storage", "vga", "monitor", "orginal_price", "price"};
+        } else if (data.getType().equals(String.valueOf(Contains.TypeRobot.TYPE_ALL))) {
+            columns = new String[]{"execution_id", "robot_id", "status", "view", "category_name_1", "category_name_2", "category_name_3", "url", "product_key", "cpu", "ram", "storage", "vga", "monitor", "orginal_price", "price"};
+        }
+        for (int i = 0; i < columns.length; i++) {
+            Cell cell = headerRow.createCell(i);
+            cell.setCellValue(columns[i]);
+            cell.setCellStyle(headerCellStyle);
+        }
+        int rowNum = 1;
+        switch (data.getPathname()) {
+            case "batch1":
+                List<ResponseBath1ResultDto> result = Batch1Result(data.getType());
+                for (ResponseBath1ResultDto item : result) {
+                    Row row = sheet.createRow(rowNum++);
+                    row.createCell(0)
+                            .setCellValue(item.getRobotId());
+                    row.createCell(1)
+                            .setCellValue(item.getCategoryName());
+                    row.createCell(2)
+                            .setCellValue(item.getExecutionId());
+                    row.createCell(3)
+                            .setCellValue(item.getUrl());
+                    row.createCell(4)
+                            .setCellValue(item.getAddDate().toString());
+                    row.createCell(5)
+                            .setCellValue(item.getUpdDate().toString());
+                }
+                break;
+            case "batch2":
+                List<ResponseBatch2ResultDto> resultBatch2 = batch2Service.getListBatch2Result(Integer.parseInt(data.getType()));
+                for (ResponseBatch2ResultDto item : resultBatch2) {
+                    Row row = sheet.createRow(rowNum++);
+                    row.createCell(0)
+                            .setCellValue(item.getExecutionId());
+                    row.createCell(1)
+                            .setCellValue(item.getRobotId());
+                    row.createCell(2)
+                            .setCellValue(item.getUrl());
+                    row.createCell(3)
+                            .setCellValue(item.getProductName());
+                    row.createCell(4)
+                            .setCellValue(item.getProductKey());
+                    row.createCell(5)
+                            .setCellValue(item.getCpu());
+                    row.createCell(6)
+                            .setCellValue(item.getRam());
+                    row.createCell(7)
+                            .setCellValue(item.getStorage());
+                    row.createCell(8)
+                            .setCellValue(item.getVga());
+                    row.createCell(9)
+                            .setCellValue(item.getMonitor());
+                    row.createCell(10)
+                            .setCellValue(item.getOriginalPrice());
+                    row.createCell(11)
+                            .setCellValue(item.getPrice());
+                }
+                break;
+            case "batch3":
+                List<ResponseBatch3ResultDto> resultBatch3 = batch3Service.getListBatch3Result(Integer.parseInt(data.getType()));
+                for (ResponseBatch3ResultDto item : resultBatch3) {
+                    Row row = sheet.createRow(rowNum++);
+                    row.createCell(0)
+                            .setCellValue(item.getExecutionId());
+                    row.createCell(1)
+                            .setCellValue(item.getRobotId());
+                    row.createCell(2)
+                            .setCellValue(item.getStatus());
+                    row.createCell(3)
+                            .setCellValue(item.getView());
+                    row.createCell(4)
+                            .setCellValue(item.getCategoryName1());
+                    row.createCell(5)
+                            .setCellValue(item.getCategoryName2());
+                    row.createCell(6)
+                            .setCellValue(item.getCategoryName3());
+                    row.createCell(7)
+                            .setCellValue(item.getUrl());
+                    row.createCell(8)
+                            .setCellValue(item.getProductKey());
+                    row.createCell(9)
+                            .setCellValue(item.getCpu());
+                    row.createCell(10)
+                            .setCellValue(item.getRam());
+                    row.createCell(11)
+                            .setCellValue(item.getStorage());
+                    row.createCell(12)
+                            .setCellValue(item.getVga());
+                    row.createCell(13)
+                            .setCellValue(item.getMonitor());
+                    row.createCell(14)
+                            .setCellValue(item.getOriginalPrice());
+                    row.createCell(15)
+                            .setCellValue(item.getPrice());
+                }
+                break;
+        }
+        FileOutputStream fileOut = null;
+        try {
+            LocalDateTime now = LocalDateTime.now();
+            String time = now.toString().replaceAll("-", "").replaceAll(":", "").replaceAll("\\.", "");
+            String workingDir = System.getProperty("user.dir");
+            Path pathName = Paths.get(workingDir + "\\export");
+            if (!Files.exists(pathName)) {
+                new File(String.valueOf(pathName)).mkdirs();
+            }
+            fileOut = new FileOutputStream(pathName.toString() + "\\" + name + data.getType() + time +".xlsx");
+            workbook.write(fileOut);
+            fileOut.close();
+            workbook.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

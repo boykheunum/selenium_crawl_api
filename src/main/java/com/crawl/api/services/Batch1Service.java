@@ -13,7 +13,7 @@ public interface Batch1Service {
 
     List<ResponseBath1ResultDto> Batch1Result(String robotId);
 
-    void exportBatch1Excel();
+    void exportBatch1Excel(RequestDataExportDto data);
 
     void exportBatch1Csv(RequestDataExportDto data);
 }
