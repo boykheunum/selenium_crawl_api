@@ -18,10 +18,12 @@ public class Batch3CustomRepository extends BaseRepositoryCustom {
         StringBuilder str = new StringBuilder();
         Map<String, Object> params = new HashMap<String, Object>();
         str.append("SELECT original_price AS originPrice, price AS price, product_key AS productKey, `view`, " +
-                "robot_id AS robotId, execution_id AS executionId FROM tbl_batch3_crawl_result WHERE execution_id = " +
+                "robot_id AS robotId, execution_id AS executionId, product_name AS productName " +
+                "FROM tbl_batch3_crawl_result WHERE execution_id = " +
                 "(SELECT MAX(execution_id) FROM tbl_batch3_crawl_result WHERE robot_id = 'HACOM03') " +
                 "UNION SELECT original_price AS originPrice, price AS price, product_key AS productKey, `view`, " +
-                "robot_id AS robotId, execution_id AS executionId FROM tbl_batch3_crawl_result WHERE execution_id = " +
+                "robot_id AS robotId, execution_id AS executionId, product_name AS productName " +
+                "FROM tbl_batch3_crawl_result WHERE execution_id = " +
                 "(SELECT MAX(execution_id) FROM tbl_batch3_crawl_result WHERE robot_id = 'NCPC03')");
         return getResultList(str.toString(), DATA_FOR_CHART, params);
     }

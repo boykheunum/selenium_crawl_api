@@ -65,7 +65,11 @@ function dataForChart(data) {
     hacom.sort(function (a, b) {return b.price - a.price});
     let limit = hacom.length < 10 ? hacom.length : 10;
     for (let i = 0; i < limit; i++) {
-        hacomBar.data.labels.push(hacom[i].productKey);
+        if(hacom[i].productName != null && hacom[i].productName != undefined) {
+            hacomBar.data.labels.push(hacom[i].productName);
+        } else {
+            hacomBar.data.labels.push(hacom[i].productKey);
+        }
         hacomBar.data.datasets[0].data.push(hacom[i].price);
     }
     hacomBar.update();
@@ -75,7 +79,11 @@ function dataForChart(data) {
     ncpc.sort(function (a, b) {return b.price - a.price});
     limit = ncpc.length < 10 ? ncpc.length : 10;
     for (let i = 0; i < limit; i++) {
-        ncpcBar.data.labels.push(ncpc[i].productKey);
+        if(ncpc[i].productName != null && ncpc[i].productName != undefined) {
+            ncpcBar.data.labels.push(ncpc[i].productName);
+        } else {
+            ncpcBar.data.labels.push(ncpc[i].productKey);
+        }
         ncpcBar.data.datasets[0].data.push(ncpc[i].price);
     }
     ncpcBar.update();
@@ -102,6 +110,11 @@ var hacomBar = new Chart(bar1, {
                     display: true,
                     text: 'Giá (đ)'
                 }
+            },
+            x: {
+                ticks: {
+                    display: false
+                }
             }
         }
     }
@@ -117,7 +130,7 @@ var ncpcBar = new Chart(bar2, {
     },
     options: {
         plugins: {
-            legend: false,
+            legend: false
         },
         scales: {
             y: {
@@ -126,6 +139,11 @@ var ncpcBar = new Chart(bar2, {
                 title: {
                     display: true,
                     text: 'Giá (đ)'
+                }
+            },
+            x: {
+                ticks: {
+                    display: false
                 }
             }
         }

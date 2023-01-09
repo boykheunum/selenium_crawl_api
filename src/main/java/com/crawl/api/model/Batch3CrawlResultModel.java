@@ -14,7 +14,8 @@ import java.time.LocalDateTime;
                 @ColumnResult(name = "view", type = String.class),
                 @ColumnResult(name = "price", type = String.class),
                 @ColumnResult(name = "originPrice", type = String.class),
-                @ColumnResult(name = "productKey", type = String.class)
+                @ColumnResult(name = "productKey", type = String.class),
+                @ColumnResult(name = "productName", type = String.class)
         })})
 
 @Entity
