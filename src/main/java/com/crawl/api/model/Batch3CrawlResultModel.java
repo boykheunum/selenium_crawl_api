@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
         columns = {
                 @ColumnResult(name = "executionId", type = String.class),
                 @ColumnResult(name = "robotId", type = String.class),
+                @ColumnResult(name = "view", type = String.class),
                 @ColumnResult(name = "price", type = String.class),
                 @ColumnResult(name = "originPrice", type = String.class),
                 @ColumnResult(name = "productKey", type = String.class)

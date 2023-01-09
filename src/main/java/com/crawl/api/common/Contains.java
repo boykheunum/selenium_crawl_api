@@ -32,4 +32,7 @@ public class Contains {
             return -1;
         }
     }
+    public static final class Chart {
+        public static final int EXECUTE_NUM = 10;
+    }
 }

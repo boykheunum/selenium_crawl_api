@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,6 +16,16 @@ public class ResponseBatch3ResultDto {
         this.price = price;
         this.originalPrice = originPrice;
         this.productKey = productKey;
+    }
+
+    public ResponseBatch3ResultDto(String executionId, String robotId,
+                                   String view, String price, String originPrice, String productKey){
+        this.executionId = executionId;
+        this.robotId = robotId;
+        this.price = price;
+        this.originalPrice = originPrice;
+        this.productKey = productKey;
+        this.view = view;
     }
 
     private String id;

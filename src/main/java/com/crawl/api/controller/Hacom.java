@@ -1,10 +1,12 @@
 package com.crawl.api.controller;
 
+import com.crawl.api.common.Contains;
 import com.crawl.api.dto.*;
 import com.crawl.api.model.Batch1CrawlResultModel;
 import com.crawl.api.services.Batch1Service;
 import com.crawl.api.services.Batch2Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.crawl.api.services.Batch3Service;
