@@ -136,8 +136,8 @@ public class Batch2CustomRepository extends BaseRepositoryCustom{
 
         sb.append("SELECT Id AS id, execution_id AS executionId, robot_id AS robotId, url, add_date AS addDate, " +
                 "upd_date AS updDate, product_name AS productName, product_key AS productKey, cpu, ram, `storage`, vga, " +
-                "monitor, `status`, original_price AS originalPrice, price, operating_system AS operatingSystem, color, " +
-                "category_name AS categoryName FROM tbl_batch2_crawl_result ");
+                "monitor, `status`, original_price AS originalPrice, price, operating_system AS operatingSystem, color " +
+                " FROM tbl_batch2_crawl_result ");
         if (dto != null) {
             sb.append("WHERE 1 ");
             if (dto.getRobotId() != null && !dto.getRobotId().equals("")) {
@@ -145,8 +145,8 @@ public class Batch2CustomRepository extends BaseRepositoryCustom{
                 params.put("robotId", dto.getRobotId());
             }
             if (dto.getProductName() != null && !dto.getProductName().equals("")) {
-                sb.append("AND product_name = :productName ");
-                params.put("productName", dto.getProductName());
+                sb.append("AND product_name LIKE :productName ");
+                params.put("productName", "%" + dto.getProductName() + "%");
             }
             if (dto.getColor() != null && !dto.getColor().equals("")) {
                 sb.append("AND color = :color ");
