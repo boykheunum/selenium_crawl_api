@@ -64,4 +64,9 @@ public class Batch2ServicesImpl implements Batch2Service {
         batch2CrawlUrlRepository.deleteAll();
     }
 
+    @Override
+    public List<Batch2CrawlUrl> getAllBatch2CrawlUrls() {
+        return batch2CrawlUrlRepository.findAll();
+    }
+
 }

@@ -16,6 +16,16 @@ import java.time.LocalDateTime;
                 @ColumnResult(name = "add_date", type = String.class),
                 @ColumnResult(name = "udp_date", type = String.class)
         })})
+@SqlResultSetMapping(name = "FILTER_RESULT_FOR_BATCH1", classes = {@ConstructorResult(
+        targetClass = com.crawl.api.dto.ResponseBath1ResultDto.class,
+        columns = {
+                @ColumnResult(name = "executionId", type = Integer.class),
+                @ColumnResult(name = "robotId", type = String.class),
+                @ColumnResult(name = "category_name", type = String.class),
+                @ColumnResult(name = "url", type = String.class),
+                @ColumnResult(name = "add_date", type = String.class),
+                @ColumnResult(name = "udp_date", type = String.class)
+        })})
 
 @Entity
 @Data

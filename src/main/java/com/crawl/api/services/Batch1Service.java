@@ -16,4 +16,8 @@ public interface Batch1Service {
     void exportBatch1Excel(RequestDataExportDto data);
 
     void exportBatch1Csv(RequestDataExportDto data);
+
+    List<ResponseBath1ResultDto> getBatch1ResultFilter(RequestFilterUrlBatch1CheckboxDto dto);
+
+    List<Integer> getBatch1ExecutionId();
 }

@@ -3,6 +3,7 @@ package com.crawl.api.controller;
 import com.crawl.api.common.Contains;
 import com.crawl.api.dto.*;
 import com.crawl.api.model.Batch1CrawlResultModel;
+import com.crawl.api.model.Batch2CrawlUrl;
 import com.crawl.api.services.Batch1Service;
 import com.crawl.api.services.Batch2Service;
 
@@ -62,7 +63,21 @@ public class Hacom {
     public final ModelAndView batch1Result(@RequestParam("type") String robotId, Model model) {
         List<ResponseBath1ResultDto> getBatch1Result = batch1Service.Batch1Result(robotId);
         model.addAttribute("batch1Result", getBatch1Result);
+        model.addAttribute("type", robotId);
+        model.addAttribute("executionIds", batch1Service.getBatch1ExecutionId());
         return new ModelAndView("filter/Batch1HacomResult");
+    }
+
+    @PostMapping("/batch1/result/json")
+    public final List<ResponseBath1ResultDto> batch1ResultFilterJson(@RequestBody RequestFilterUrlBatch1CheckboxDto dto){
+        return batch1Service.getBatch1ResultFilter(dto);
+    }
+
+    @GetMapping("/batch2/crawl-url")
+    public final ModelAndView batch2Url(Model model) {
+        List<Batch2CrawlUrl> getBatch2CrawlUrl = batch2Service.getAllBatch2CrawlUrls();
+        model.addAttribute("batch2CrawlUrl", getBatch2CrawlUrl);
+        return new ModelAndView("filter/Batch2CrawlUrl");
     }
 
     @GetMapping("/batch2/result")
