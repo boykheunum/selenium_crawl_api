@@ -9,7 +9,6 @@ import javax.persistence.Column;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class ResponseBatch3ResultDto {
     public ResponseBatch3ResultDto(String executionId, String robotId, String price, String originPrice, String productKey) {
         this.executionId = executionId;
@@ -27,6 +26,36 @@ public class ResponseBatch3ResultDto {
         this.originalPrice = originPrice;
         this.productKey = productKey;
         this.view = view;
+        this.productName = productName;
+    }
+
+    public ResponseBatch3ResultDto(String executionId, String robotId, String status, String view, String cpu, String ram,
+                                   String vga, String monitor, String color, String promotional, String originalPrice,
+                                   String price, String productKey, String categoryName1, String categoryName2,
+                                   String categoryName3, String id, String addDate, String updDate, String storage,
+                                   String keyboard, String url, String productName) {
+        this.id = id;
+        this.executionId = executionId;
+        this.robotId = robotId;
+        this.status = status;
+        this.view = view;
+        this.cpu = cpu;
+        this.ram = ram;
+        this.vga = vga;
+        this.monitor = monitor;
+        this.color = color;
+        this.promotional = promotional;
+        this.originalPrice = originalPrice;
+        this.price = price;
+        this.productKey = productKey;
+        this.categoryName1 = categoryName1;
+        this.categoryName2 = categoryName2;
+        this.categoryName3 = categoryName3;
+        this.addDate = addDate;
+        this.updDate = updDate;
+        this.storage = storage;
+        this.keyboard = keyboard;
+        this.url = url;
         this.productName = productName;
     }
 

@@ -33,7 +33,7 @@ public class Batch3CustomRepository extends BaseRepositoryCustom {
     public List<Batch3CrawlResultModel> getBatch3ResultFilter(ResponseBatch3ResultDto dto) {
         StringBuilder sb = new StringBuilder();
         Map<String, Object> params = new HashMap<String, Object>();
-        sb.append("SELECT b.id As id, b.robot_id as RobotID, b.product_key as productKey, b.execution_id as executionId, b.status as status, b.view as view, b.cpu as cpu, b.ram as ram, b.vga as vga, b.monitor as monitor, b.color as color, b.promotional as promotional, b.original_price as originalPrice, b.price as price, b.product_key as productKey, b.storage as storage, b.keyboard as keyboard, b.url as url,")
+        sb.append("SELECT b.id As id, b.robot_id as robotID, b.product_key as productKey, b.execution_id as executionId, b.status as status, b.view as view, b.cpu as cpu, b.ram as ram, b.vga as vga, b.monitor as monitor, b.color as color, b.promotional as promotional, b.original_price as originalPrice, b.price as price, b.product_key as productKey, b.storage as storage, b.keyboard as keyboard, b.url as url,")
                 .append("b.category_name_1 as categoryName1, b.category_name_2 as categoryName2, b.category_name_3 as categoryName3, b.add_date as addDate, b.upd_date as updDate, b.product_name as productName ")
                 .append("FROM tbl_batch3_crawl_result as b ");
         if(dto != null){
