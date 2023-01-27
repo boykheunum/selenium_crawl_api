@@ -2,7 +2,9 @@ package com.crawl.api.services.impl;
 
 import com.crawl.api.common.Contains;
 import com.crawl.api.common.untils.ModelMapUntils;
+import com.crawl.api.dto.ResponseBatch2ResultDto;
 import com.crawl.api.dto.ResponseBatch3ResultDto;
+import com.crawl.api.model.Batch2CrawlResultModel;
 import com.crawl.api.model.Batch3CrawlResultModel;
 import com.crawl.api.repository.Batch3CrawlListRepository;
 import com.crawl.api.repository.Batch3Repository;
@@ -48,5 +50,12 @@ public class Batch3ServicesImpl implements Batch3Service {
     public List<ResponseBatch3ResultDto> getChartData() {
         List<ResponseBatch3ResultDto> data = batch3CustomRepository.getDataFromBatch3();
         return data;
+    }
+
+    @Override
+    public List<ResponseBatch3ResultDto> getListBatch3ResultFilter(ResponseBatch3ResultDto dto) {
+        List<Batch3CrawlResultModel> lBatch3Result = batch3CustomRepository.getBatch3ResultFilter(dto);
+
+        return ModelMapUntils.mapAll(lBatch3Result, ResponseBatch3ResultDto.class);
     }
 }
