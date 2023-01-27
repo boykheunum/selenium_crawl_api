@@ -1,5 +1,6 @@
 package com.crawl.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import javax.persistence.Column;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResponseBatch3ResultDto {
-    public ResponseBatch3ResultDto(String executionId, String robotId, String price, String originPrice, String productKey){
+    public ResponseBatch3ResultDto(String executionId, String robotId, String price, String originPrice, String productKey) {
         this.executionId = executionId;
         this.robotId = robotId;
         this.price = price;
@@ -19,7 +20,7 @@ public class ResponseBatch3ResultDto {
     }
 
     public ResponseBatch3ResultDto(String executionId, String robotId, String view, String price, String originPrice,
-                                   String productKey, String productName){
+                                   String productKey, String productName) {
         this.executionId = executionId;
         this.robotId = robotId;
         this.price = price;
@@ -33,6 +34,7 @@ public class ResponseBatch3ResultDto {
 
     private String executionId;
 
+    @JsonProperty("robot_id")
     private String robotId;
 
     private String status;
@@ -73,5 +75,6 @@ public class ResponseBatch3ResultDto {
 
     private String url;
 
+    @JsonProperty(value = "product_name")
     private String productName;
 }

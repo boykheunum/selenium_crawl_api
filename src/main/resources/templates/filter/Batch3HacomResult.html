@@ -105,6 +105,64 @@
             </div>
             <!-- /. ROW  -->
             <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    <div th:text="${type}" hidden id="robotType"></div>
+                    <div role="form">
+                        <div class="form-group col-md-6">
+                            <label>Thương hiệu</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="brandsRadios" value="" checked/>Tất cả
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="brandsRadios" value="acer" />ACER
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="brandsRadios" value="asus"/>ASUS
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="brandsRadios" value="dell"/>DELL
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Màu sắc</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="colorRadios" value="" checked/>Tất cả
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="colorRadios" value="Đen" />Đen
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="colorRadios" value="Xám"/>Xám
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="colorRadios" value="vàng"/>Vàng
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="checkboxSubmit" style="float: right; margin-right: 5rem">Xác nhận</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /. ROW  -->
+            <hr/>
+            <!-- /. ROW  -->
+            <hr/>
 
             <div class="row">
                 <div class="col-md-12">
@@ -114,15 +172,15 @@
                             Danh sách kết quả
                         </div>
                         <div class="panel-body">
-                            <div class="table-responsive">
+                            <div class="table-responsive" id="tableResponsive">
                                 <table class="table table-striped table-bordered table-hover"
                                        id="dataTables-example">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Execution_ID</th>
                                         <th>Robot_ID</th>
                                         <th>Product_Key</th>
+                                        <th>Product_name</th>
                                         <th>Category1</th>
                                         <th>Category2</th>
                                         <th>Category3</th>
@@ -132,10 +190,10 @@
                                     <tbody>
                                     <th:block th:each="item : ${batch3Result}">
                                         <tr class="odd gradeX">
-                                            <td th:text="${item.id}"></td>
                                             <td th:text="${item.executionId}"></td>
                                             <td th:text="${item.robotId}"></td>
                                             <td th:text="${item.productKey}"></td>
+                                            <td th:text="${item.productName}"></td>
                                             <td th:text="${item.categoryName1}"></td>
                                             <td th:text="${item.categoryName2}"></td>
                                             <td th:text="${item.categoryName3}"></td>
@@ -185,6 +243,45 @@
 <!--<script th:src="@{/assets/js/custom.js}"></script>-->
 <script th:src="@{/assets/js/ExportFile.js}"></script>
 
+<script>
+    let type = parseInt($("#robotType").html());
+    switch (type) {
+        case 1:
+            type = "HACOM03";
+            break;
+        case 2:
+            type = "NCPC03";
+            break;
+        case 3:
+            type = "";
+            break;
+    }
+    $("#checkboxSubmit").click(function () {
+        let data = {}
+        data["robot_id"]=type;
+        data["product_name"]=$("input:radio[name=brandsRadios]:checked").val();
+        data["color"]=$("input:radio[name=colorRadios]:checked").val();
+        $.ajax({
+            type: "POST",
+            url:"/hacom/batch3/result/json",
+             contentType: "application/json",
+             data:JSON.stringify(data),
+            success: function (data) {
+                console.log(data);
+                let str = "<table class=\"table table-striped table-bordered table-hover\" id=\"dataTables-example\"><thead>" +
+                    "<tr><th>ID</th><th>Execution_ID</th><th>Robot_ID</th><th>Product_Key</th><th>Product_Name</th><th>Category1</th><th>Category2</th><th>Category3</th>"+
+                    "<th>Url</th></tr></thead><tbody>";
+                for(let i = 0; i < data.length; i++) {
+                    str += "<tr class=\"odd gradeX\"><td>" + data[i].id + "</td><td>" + data[i].execution_id + "</td><td>" +
+                        data[i].robot_id + "</td><td>" + data[i].product_key + "</td><td>" + data[i].product_name + "</td><td>" + data[i].categoryName1 + "</td><td>" + data[i].categoryName2 + "</td><td>" + data[i].categoryName3 + "</td><td>" + data[i].url + "</td></tr>";
+                }
+                str += "</tbody></table>";
+                $("#tableResponsive").html(str);
+                $('#dataTables-example').dataTable();
+            }
+        })
+    })
+</script>
 
 </body>
 

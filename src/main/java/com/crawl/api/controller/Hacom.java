@@ -25,12 +25,12 @@ public class Hacom {
     @Autowired
     private Batch3Service batch3Service;
 
-    @PostMapping("filter/sql-batch2")
-    public final String filterUrlForBatch2(@RequestBody RequestFilterUrlBatch1Dto dto) {
-        batch2Service.deleteAllBatch2CrawlUrls();
-        batch1Service.Batch2UrlFilter(dto);
-        return "Hello world";
-    }
+//    @PostMapping("filter/sql-batch2")
+//    public final String filterUrlForBatch2(@RequestBody RequestFilterUrlBatch1Dto dto) {
+//        batch2Service.deleteAllBatch2CrawlUrls();
+//        batch1Service.Batch2UrlFilter(dto);
+//        return "Hello world";
+//    }
 
     @PostMapping("filter/sql-batch2/checkbox")
     public final String filterUrlForBatch2Checkbox(@RequestBody RequestFilterUrlBatch1CheckboxDto dto) {
@@ -39,12 +39,12 @@ public class Hacom {
         return "Hello world";
     }
 
-    @PostMapping("filter/sql-batch3")
-    public final String filterUrlForBatch3(@RequestBody RequestFilterUrlBatch2Dto dto) {
-        batch3Service.deleteAllBatch3CrawlLists();
-        batch2Service.Batch3UrlFilter(dto);
-        return "complete filter url batch 3";
-    }
+//    @PostMapping("filter/sql-batch3")
+//    public final String filterUrlForBatch3(@RequestBody RequestFilterUrlBatch2Dto dto) {
+//        batch3Service.deleteAllBatch3CrawlLists();
+//        batch2Service.Batch3UrlFilter(dto);
+//        return "complete filter url batch 3";
+//    }
 
     @PostMapping("filter/sql-batch3/checkbox")
     public final String filterUrlForBatch3Checkbox(@RequestBody RequestFilterUrlBatch2CheckboxDto dto) {
@@ -74,7 +74,7 @@ public class Hacom {
     }
 
     @PostMapping("/batch2/result/json")
-    public final List<ResponseBatch2ResultDto> batch2ResultFilterJson(@RequestBody ResponseBatch2ResultDto dto, Model model){
+    public final List<ResponseBatch2ResultDto> batch2ResultFilterJson(@RequestBody ResponseBatch2ResultDto dto){
         return batch2Service.getListBatch2ResultFilter(dto);
     }
 
@@ -82,7 +82,13 @@ public class Hacom {
     public final ModelAndView batch3Result(@RequestParam("type") Integer robotId, Model model){
         List<ResponseBatch3ResultDto> getBatch3Result = batch3Service.getListBatch3Result(robotId);
         model.addAttribute("batch3Result", getBatch3Result);
+        model.addAttribute("type", robotId);
         return new ModelAndView("filter/Batch3HacomResult");
+    }
+
+    @PostMapping("batch3/result/json")
+    public final List<ResponseBatch3ResultDto> batch3ResultFilterJson(@RequestBody ResponseBatch3ResultDto dto){
+        return batch3Service.getListBatch3ResultFilter(dto);
     }
 
     @GetMapping("/chart")
@@ -103,5 +109,10 @@ public class Hacom {
     @PostMapping("/csv_export")
     public void csvExport(@RequestBody RequestDataExportDto data){
         batch1Service.exportBatch1Csv(data);
+    }
+
+    @GetMapping("data_input_filter")
+    public ModelAndView dataInputFilter(){
+        return new ModelAndView("filter/FilterDataInput");
     }
 }

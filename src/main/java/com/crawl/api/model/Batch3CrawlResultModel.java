@@ -17,6 +17,33 @@ import java.time.LocalDateTime;
                 @ColumnResult(name = "productKey", type = String.class),
                 @ColumnResult(name = "productName", type = String.class)
         })})
+@SqlResultSetMapping(name = "FILTER_RESULT_FOR_BATCH3", classes = {@ConstructorResult(
+        targetClass = com.crawl.api.dto.ResponseBatch3ResultDto.class,
+        columns = {
+                @ColumnResult(name = "robotId", type = String.class),
+                @ColumnResult(name = "executionId", type = String.class),
+                @ColumnResult(name = "status", type = String.class),
+                @ColumnResult(name = "view", type = String.class),
+                @ColumnResult(name = "cpu", type = String.class),
+                @ColumnResult(name = "ram", type = String.class),
+                @ColumnResult(name = "vga", type = String.class),
+                @ColumnResult(name = "monitor", type = String.class),
+                @ColumnResult(name ="color", type = String.class),
+                @ColumnResult(name = "promotional", type = String.class),
+                @ColumnResult(name = "originalPrice", type = String.class),
+                @ColumnResult(name = "price", type = String.class),
+                @ColumnResult(name = "productKey", type = String.class),
+                @ColumnResult(name = "categoryName1", type = String.class),
+                @ColumnResult(name = "categoryName2", type = String.class),
+                @ColumnResult(name = "categoryName3", type = String.class),
+                @ColumnResult(name = "id", type = String.class),
+                @ColumnResult(name = "addDate", type = String.class),
+                @ColumnResult(name = "updDate", type = String.class),
+                @ColumnResult(name = "storage", type = String.class),
+                @ColumnResult(name = "keyboard", type = String.class),
+                @ColumnResult(name = "url", type = String.class),
+                @ColumnResult(name = "productName", type = String.class)
+        })})
 
 @Entity
 @Table(name = "tbl_batch3_crawl_result")

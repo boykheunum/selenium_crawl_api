@@ -66,26 +66,6 @@ public class Batch2CustomRepository extends BaseRepositoryCustom{
             sb.append("AND color = :color ");
             params.put("color", dto.getColor());
         }
-//        if (dto.getAddDateStart() != null && !dto.getAddDateStart().isEmpty()
-//                && dto.getAddDateStart().matches(Contains.RegexString.DATE_TIME)) {
-//            sb.append(" AND DATEDIFF(add_date, :addDateStart) >= 0 ");
-//            params.put("addDateStart", dto.getAddDateStart());
-//        }
-//        if (dto.getAddDateEnd() != null && !dto.getAddDateEnd().isEmpty()
-//                && dto.getAddDateEnd().matches(Contains.RegexString.DATE_TIME)) {
-//            sb.append(" AND DATEDIFF(add_date, :addDateEnd) <= 0 ");
-//            params.put("addDateEnd", dto.getAddDateEnd());
-//        }
-//        if (dto.getUpdDateStart() != null && !dto.getUpdDateStart().isEmpty()
-//                && dto.getUpdDateStart().matches(Contains.RegexString.DATE_TIME)) {
-//            sb.append(" AND DATEDIFF(add_date, :updDateStart) >= 0 ");
-//            params.put("updDateStart", dto.getUpdDateStart());
-//        }
-//        if (dto.getUpdDateEnd() != null && !dto.getUpdDateEnd().isEmpty()
-//                && dto.getUpdDateEnd().matches(Contains.RegexString.DATE_TIME)) {
-//            sb.append(" AND DATEDIFF(add_date, :updDateEnd) <= 0 ");
-//            params.put("updDateEnd", dto.getUpdDateEnd());
-//        }
         String robotName = "HACOM03";
         if (dto.getRobotId().equals("HACOM02")) {
             robotName = "HACOM03";
