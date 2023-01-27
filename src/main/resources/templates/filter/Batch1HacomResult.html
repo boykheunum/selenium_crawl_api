@@ -110,6 +110,54 @@
             </div>
             <!-- /. ROW  -->
             <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    <div th:text="${type}" hidden id="robotType"></div>
+                    <div role="form">
+                        <div class="form-group col-md-6">
+                            <label>Execution id</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="executionIdsRadios" value="" checked/>Tất cả
+                                </label>
+                            </div>
+                            <th:block th:each="item : ${executionIds}">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="executionIdsRadios" th:value="${item}"  th:text="${item}"/>
+                                    </label>
+                                </div>
+                            </th:block>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Màu sắc</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="colorRadios" value="" checked/>Tất cả
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="colorRadios" value="Đen" />Đen
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="colorRadios" value="Xám"/>Xám
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="colorRadios" value="vàng"/>Vàng
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="checkboxSubmit" style="margin-left: 5rem">Xác nhận</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /. ROW  -->
+            <hr/>
 
             <div class="row">
                 <div class="col-md-12">

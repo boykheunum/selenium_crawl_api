@@ -289,4 +289,16 @@ public class Batch1ServicesImpl implements Batch1Service {
         }
 
     }
+
+    @Override
+    public List<ResponseBath1ResultDto> getBatch1ResultFilter(RequestFilterUrlBatch1CheckboxDto dto) {
+        List<Batch1CrawlResultModel> result = batch1Custom.getBatch1ResultCheckbox(dto);
+        List<ResponseBath1ResultDto> data = ModelMapUntils.mapAll(result, ResponseBath1ResultDto.class);
+        return data;
+    }
+
+    @Override
+    public List<Integer> getBatch1ExecutionId() {
+        return batch1Repository.getDistinctExecutionId();
+    }
 }
