@@ -19,4 +19,8 @@ public interface Batch2Service {
     void deleteAllBatch2CrawlUrls();
 
     List<Batch2CrawlUrl> getAllBatch2CrawlUrls();
+
+    void batch2CrawlUrlDeleteAll();
+
+    void deleteBatch2DataSelect(String idSelect);
 }

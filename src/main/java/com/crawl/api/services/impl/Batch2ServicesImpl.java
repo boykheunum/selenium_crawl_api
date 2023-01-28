@@ -13,11 +13,14 @@ import com.crawl.api.repository.CustomRepository.Batch2CustomRepository;
 import com.crawl.api.services.Batch2Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class Batch2ServicesImpl implements Batch2Service {
     @Autowired
     private Batch2CustomRepository batch2Custom;
@@ -67,6 +70,24 @@ public class Batch2ServicesImpl implements Batch2Service {
     @Override
     public List<Batch2CrawlUrl> getAllBatch2CrawlUrls() {
         return batch2CrawlUrlRepository.findAll();
+    }
+
+    @Override
+    public void batch2CrawlUrlDeleteAll() {
+        batch2CrawlUrlRepository.deleteAll();
+    }
+
+    @Override
+    public void deleteBatch2DataSelect(String idSelect) {
+        if (!StringUtils.hasText(idSelect)) {
+            return;
+        } else {
+            String[] arr = idSelect.split(",");
+            for (String key : arr) {
+
+                batch2CrawlUrlRepository.deleteSelectId(key);
+            }
+        }
     }
 
 }
