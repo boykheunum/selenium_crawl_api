@@ -19,5 +19,5 @@ public interface Batch1Service {
 
     List<ResponseBath1ResultDto> getBatch1ResultFilter(RequestFilterUrlBatch1CheckboxDto dto);
 
-    List<Integer> getBatch1ExecutionId();
+    List<Integer> getBatch1ExecutionId(String robotId);
 }

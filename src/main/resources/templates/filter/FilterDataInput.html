@@ -16,6 +16,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <!-- TABLE STYLES-->
     <link th:href="@{/assets/js/dataTables/dataTables.bootstrap.css}" rel="stylesheet"/>
+
 </head>
 <body>
 <div id="wrapper">
@@ -103,499 +104,55 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Forms Page</h2>
-                    <h5>Welcome Jhon Deo , Love to see you back. </h5>
-
+                    <h2>Filter</h2>
                 </div>
             </div>
             <!-- /. ROW  -->
             <hr/>
             <div class="row">
-                <div class="col-md-6">
-                    <!-- Form Elements -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Form Element Examples
+                <div class="col-md-12">
+                    <div role="form">
+                        <div class="form-group col-md-6">
+                            <label>Trang</label>
+                            <select class="form-control" id="robotSelection">
+                                <option value="HACOM">Hacom</option>
+                                <option value="NCPC">Nguyen Cong PC</option>
+                            </select>
                         </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3>Basic Form Examples</h3>
-                                    <form role="form">
-                                        <div class="form-group">
-                                            <label>Text Input</label>
-                                            <input class="form-control"/>
-                                            <p class="help-block">Help text here.</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Text Input with Placeholder</label>
-                                            <input class="form-control" placeholder="PLease Enter Keyword"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Just A Label Control</label>
-                                            <p class="form-control-static">info@yourdomain.com</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>File input</label>
-                                            <input type="file"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Text area</label>
-                                            <textarea class="form-control" rows="3"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Checkboxes</label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value=""/>Checkbox Example One
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value=""/>Checkbox Example Two
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value=""/>Checkbox Example Three
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Inline Checkboxes Examples</label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox"/> One
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox"/> Two
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox"/> Three
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Radio Button Examples</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios1"
-                                                           value="option1" checked/>Radio Example One
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios2"
-                                                           value="option2"/>Radio Example Two
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios3"
-                                                           value="option3"/>Radio Example Three
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Select Example</label>
-                                            <select class="form-control">
-                                                <option>One Vale</option>
-                                                <option>Two Vale</option>
-                                                <option>Three Vale</option>
-                                                <option>Four Vale</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Multiple Select Example</label>
-                                            <select multiple class="form-control">
-                                                <option>One Vale</option>
-                                                <option>Two Vale</option>
-                                                <option>Three Vale</option>
-                                                <option>Four Vale</option>
-                                            </select>
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-primary">Reset Button</button>
-
-                                    </form>
-                                    <br/>
-                                    <h3>With radio & checkboxes</h3>
-                                    <form>
-
-                                        <div class="form-group input-group">
-      <span class="input-group-addon">
-        <input type="checkbox"/>
-      </span>
-                                            <input type="text" class="form-control"/>
-                                        </div>
-                                        <div class="form-group input-group">
-      <span class="input-group-addon">
-        <input type="radio"/>
-      </span>
-                                            <input type="text" class="form-control"/>
-                                        </div>
-                                    </form>
-
-
-                                </div>
-
-                                <div class="col-md-6">
-                                    <h3>Disabled Form State Examples</h3>
-                                    <form role="form">
-                                        <fieldset disabled="disabled">
-                                            <div class="form-group">
-                                                <label for="disabledSelect">Disabled input</label>
-                                                <input class="form-control" id="disabledInput" type="text"
-                                                       placeholder="Disabled input" disabled/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="disabledSelect">Disabled select </label>
-                                                <select id="disabledSelect" class="form-control">
-                                                    <option>Disabled select</option>
-                                                </select>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"/>Disabled Checkbox
-                                                </label>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Disabled Button</button>
-                                        </fieldset>
-                                    </form>
-                                    <h3>Validation State Examples</h3>
-                                    <form role="form">
-                                        <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess">Input with success</label>
-                                            <input type="text" class="form-control" id="inputSuccess">
-                                        </div>
-                                        <div class="form-group has-warning">
-                                            <label class="control-label" for="inputWarning">Input with warning</label>
-                                            <input type="text" class="form-control" id="inputWarning">
-                                        </div>
-                                        <div class="form-group has-error">
-                                            <label class="control-label" for="inputError">Input with error</label>
-                                            <input type="text" class="form-control" id="inputError">
-                                        </div>
-                                    </form>
-                                    <h3>Input Group Examples</h3>
-                                    <form role="form">
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Username">
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-addon">.00</span>
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
-                                            </span>
-                                            <input type="text" class="form-control" placeholder="Font Awesome Icon">
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">$</span>
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-addon">.00</span>
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i
-                                                        class="fa fa-search"></i>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </form>
-                                    <h3>Different Size Input Groups</h3>
-                                    <form role="form">
-                                        <div class=" form-group input-group input-group-lg">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Username"/>
-                                        </div>
-
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Username"/>
-                                        </div>
-
-                                        <div class="form-group input-group input-group-sm">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Username"/>
-                                        </div>
-
-                                    </form>
-                                    <h3>Different Size Input Groups</h3>
-                                    <form role="form">
-                                        <div class="input-group">
-      <span class="form-group input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                                            <input type="text" class="form-control"/>
-                                        </div>
-                                        <br/>
-                                        <div class="input-group">
-
-                                            <input type="text" class="form-control"/>
-                                            <span class="form-group input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label>Batch</label>
+                            <select class="form-control" id="batchSelection">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
                         </div>
                     </div>
-                    <!-- End Form Elements -->
-                </div>
-                <div class="col-md-6">
-                    <!-- Form Elements -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Form Element Examples
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3>Basic Form Examples</h3>
-                                    <form role="form">
-                                        <div class="form-group">
-                                            <label>Text Input</label>
-                                            <input class="form-control"/>
-                                            <p class="help-block">Help text here.</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Text Input with Placeholder</label>
-                                            <input class="form-control" placeholder="PLease Enter Keyword"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Just A Label Control</label>
-                                            <p class="form-control-static">info@yourdomain.com</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>File input</label>
-                                            <input type="file"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Text area</label>
-                                            <textarea class="form-control" rows="3"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Checkboxes</label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value=""/>Checkbox Example One
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value=""/>Checkbox Example Two
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value=""/>Checkbox Example Three
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Inline Checkboxes Examples</label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox"/> One
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox"/> Two
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox"/> Three
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Radio Button Examples</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios1"
-                                                           value="option1" checked/>Radio Example One
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios2"
-                                                           value="option2"/>Radio Example Two
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios3"
-                                                           value="option3"/>Radio Example Three
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Select Example</label>
-                                            <select class="form-control">
-                                                <option>One Vale</option>
-                                                <option>Two Vale</option>
-                                                <option>Three Vale</option>
-                                                <option>Four Vale</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Multiple Select Example</label>
-                                            <select multiple class="form-control">
-                                                <option>One Vale</option>
-                                                <option>Two Vale</option>
-                                                <option>Three Vale</option>
-                                                <option>Four Vale</option>
-                                            </select>
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-primary">Reset Button</button>
-
-                                    </form>
-                                    <br/>
-                                    <h3>With radio & checkboxes</h3>
-                                    <form>
-
-                                        <div class="form-group input-group">
-      <span class="input-group-addon">
-        <input type="checkbox"/>
-      </span>
-                                            <input type="text" class="form-control"/>
-                                        </div>
-                                        <div class="form-group input-group">
-      <span class="input-group-addon">
-        <input type="radio"/>
-      </span>
-                                            <input type="text" class="form-control"/>
-                                        </div>
-                                    </form>
-
-
-                                </div>
-
-                                <div class="col-md-6">
-                                    <h3>Disabled Form State Examples</h3>
-                                    <form role="form">
-                                        <fieldset disabled="disabled">
-                                            <div class="form-group">
-                                                <label for="disabledSelect">Disabled input</label>
-                                                <input class="form-control" id="disabledInput" type="text"
-                                                       placeholder="Disabled input" disabled/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="disabledSelect">Disabled select </label>
-                                                <select id="disabledSelect" class="form-control">
-                                                    <option>Disabled select</option>
-                                                </select>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"/>Disabled Checkbox
-                                                </label>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Disabled Button</button>
-                                        </fieldset>
-                                    </form>
-                                    <h3>Validation State Examples</h3>
-                                    <form role="form">
-                                        <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess">Input with success</label>
-                                            <input type="text" class="form-control" id="inputSuccess">
-                                        </div>
-                                        <div class="form-group has-warning">
-                                            <label class="control-label" for="inputWarning">Input with warning</label>
-                                            <input type="text" class="form-control" id="inputWarning">
-                                        </div>
-                                        <div class="form-group has-error">
-                                            <label class="control-label" for="inputError">Input with error</label>
-                                            <input type="text" class="form-control" id="inputError">
-                                        </div>
-                                    </form>
-                                    <h3>Input Group Examples</h3>
-                                    <form role="form">
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Username">
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-addon">.00</span>
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
-                                            </span>
-                                            <input type="text" class="form-control" placeholder="Font Awesome Icon">
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">$</span>
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-addon">.00</span>
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i
-                                                        class="fa fa-search"></i>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </form>
-                                    <h3>Different Size Input Groups</h3>
-                                    <form role="form">
-                                        <div class=" form-group input-group input-group-lg">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Username"/>
-                                        </div>
-
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Username"/>
-                                        </div>
-
-                                        <div class="form-group input-group input-group-sm">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Username"/>
-                                        </div>
-
-                                    </form>
-                                    <h3>Different Size Input Groups</h3>
-                                    <form role="form">
-                                        <div class="input-group">
-      <span class="form-group input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                                            <input type="text" class="form-control"/>
-                                        </div>
-                                        <br/>
-                                        <div class="input-group">
-
-                                            <input type="text" class="form-control"/>
-                                            <span class="form-group input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Form Elements -->
                 </div>
             </div>
-
             <!-- /. ROW  -->
+            <hr/>
+            <div class="row">
+                <div class="col-md-12" id="filterByBatchAndRobot"></div>
+            </div>
+            <!-- /. ROW  -->
+            <hr/>
             <div class="row">
                 <div class="col-md-12">
-                    <h3>More Customization</h3>
-                    <p>
-                        For more customization for this template or its components please visit official bootstrap
-                        website i.e getbootstrap.com or <a href="http://getbootstrap.com/components/" target="_blank">click
-                        here</a> . We hope you will enjoy our template. This template is easy to use, light weight and
-                        made with love by binarycart.com
-                    </p>
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Danh sách kết quả
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive" id="tableResponsive">
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
                 </div>
             </div>
-            <!-- /. ROW  -->
         </div>
         <!-- /. PAGE INNER  -->
     </div>
@@ -615,7 +172,97 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 <script>
     $(document).ready(function () {
         $('#dataTables-example').dataTable();
+        loadFilterByBatchAndRobot();
+        getFilterResult();
     });
+    function loadFilterByBatchAndRobot() {
+        let search = {"robot": $("#robotSelection").val(), batch: $("#batchSelection").val()};
+        $.ajax({
+            type: "POST",
+            contentType : "application/json",
+            url: "/hacom/get_execution_ids",
+            data: JSON.stringify(search),
+            dataType : 'json'
+        }).done(function (data) {
+            console.log(data);
+            let str = "";
+            if (data.length > 0) {
+                str += "<label class='col-sm-12'>Execution id</label><div class='col-sm-8'><select class='form-control' id='executionIdsSelection'>";
+                for(let i = 0; i < data.length; i++) {
+                    str += "<option value='" + data[i] + "'>" + data[i] + "</option>";
+                }
+                str += "</select></div><div class='col-sm-4'>" +
+                    "<button class='btn btn-primary' id='checkboxSubmit' onclick='getFilterResult()'>Lọc kết quả</button></div>";
+            }
+            $("#filterByBatchAndRobot").html(str);
+        }).fail(function( jqXHR, textStatus ) {
+            console.log( "Request failed: " + textStatus );
+        });
+    }
+    $("#robotSelection").change(function () {
+        loadFilterByBatchAndRobot();
+    });
+    $("#batchSelection").change(function () {
+        loadFilterByBatchAndRobot();
+    });
+    function getFilterResult() {
+        let search = {"robot": $("#robotSelection").val(), batch: $("#batchSelection").val(),
+            executionId: $("#executionIdsSelection").val()};
+        console.log(search);
+        $.ajax({
+            type: "POST",
+            contentType : "application/json",
+            url: "/hacom/get_filter_batch_results",
+            data: JSON.stringify(search),
+            dataType : 'json'
+        }).done(function (data) {
+            console.log(data);
+            let str = "";
+            if (data.length > 0) {
+                switch (search.batch) {
+                    case "1":
+                        str += "<table class='table table-striped table-bordered table-hover' id='dataTables-example'> " +
+                            "<thead><tr><th>Execution_ID</th><th>Robot_ID</th><th>Category_Name</th><th>Url</th>" +
+                            "<th>Add_Date</th><th>Update_Date</th></tr></thead><tbody>";
+                        for(let i = 0; i < data.length; i++) {
+                            str += "<tr class='odd gradeX'><td>" + data[i].execution_id + "</td><td>" + data[i].robot_id +
+                                "</td><td>" + data[i].category_name + "</td><td>" + data[i].url + "</td>" +
+                                "<td>" + data[i].add_date + "</td><td>" + data[i].upd_date + "</td></tr>";
+                        }
+                        str += "</tbody></table>";
+                        break;
+                    case "2":
+                        str += "<table class='table table-striped table-bordered table-hover' id='dataTables-example'> " +
+                            "<thead><tr><th>ID</th><th>Execution_ID</th><th>Robot_ID</th><th>Product_Key</th>" +
+                            "<th>Product_Name</th><th>Url</th></tr></thead><tbody>";
+                        for(let i = 0; i < data.length; i++) {
+                            str += "<tr class='odd gradeX'><td>" + data[i].id + "</td><td>" + data[i].execution_id +
+                                "</td><td>" + data[i].robot_id + "</td><td>" + data[i].product_key + "</td><td>" +
+                                data[i].product_name + "</td><td>" + data[i].url + "</td></tr>";
+                        }
+                        str += "</tbody></table>";
+                        break;
+                    case "3":
+                        str += "<table class='table table-striped table-bordered table-hover' id='dataTables-example'> " +
+                            "<thead><tr><th>Execution_ID</th><th>Robot_ID</th><th>Product_Key</th><th>Product_Name</th>" +
+                            "<th>Category1</th><th>Category2</th><th>Category3</th><th>Url</th></tr></thead><tbody>";
+                        for(let i = 0; i < data.length; i++) {
+                            str += "<tr class='odd gradeX'><td>" + data[i].executionId + "</td><td>" + data[i].robot_id +
+                                "</td><td>" + data[i].productKey + "</td><td>" + data[i].product_name + "</td><td>" +
+                                data[i].categoryName1 + "</td><td>" + data[i].categoryName2 + "</td><td>" +
+                                data[i].categoryName3 + "</td><td>" + data[i].url + "</td></tr>";
+                        }
+                        str = str.replaceAll(">null</td>", "></td>");
+                        str += "</tbody></table>";
+                        break;
+                }
+            }
+            $("#tableResponsive").html(str);
+            $('#dataTables-example').dataTable();
+        }).fail(function( jqXHR, textStatus ) {
+            console.log( "Request failed: " + textStatus );
+        });
+    }
 </script>
 <!-- CUSTOM SCRIPTS -->
 <!--<script th:src="@{/assets/js/custom.js}"></script>-->

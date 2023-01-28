@@ -18,6 +18,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import com.crawl.api.services.Batch2Service;
@@ -292,13 +294,18 @@ public class Batch1ServicesImpl implements Batch1Service {
 
     @Override
     public List<ResponseBath1ResultDto> getBatch1ResultFilter(RequestFilterUrlBatch1CheckboxDto dto) {
-        List<Batch1CrawlResultModel> result = batch1Custom.getBatch1ResultCheckbox(dto);
-        List<ResponseBath1ResultDto> data = ModelMapUntils.mapAll(result, ResponseBath1ResultDto.class);
-        return data;
+        try {
+            List<Batch1CrawlResultModel> result = batch1Custom.getBatch1ResultCheckbox(dto);
+            List<ResponseBath1ResultDto> data = ModelMapUntils.mapAll(result, ResponseBath1ResultDto.class);
+            return data;
+        } catch (Exception e) {
+            Logger.getLogger(Batch1ServicesImpl.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return null;
     }
 
     @Override
-    public List<Integer> getBatch1ExecutionId() {
-        return batch1Repository.getDistinctExecutionId();
+    public List<Integer> getBatch1ExecutionId(String robotId) {
+        return batch1Repository.getDistinctExecutionId(robotId);
     }
 }

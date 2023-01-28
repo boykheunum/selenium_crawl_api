@@ -58,4 +58,9 @@ public class Batch3ServicesImpl implements Batch3Service {
 
         return ModelMapUntils.mapAll(lBatch3Result, ResponseBatch3ResultDto.class);
     }
+
+    @Override
+    public List<Integer> getBatch3ExecutionId(String robotId) {
+        return batch3Repository.getDistinctExecutionId(robotId);
+    }
 }
