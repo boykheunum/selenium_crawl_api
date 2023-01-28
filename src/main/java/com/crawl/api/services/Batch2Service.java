@@ -23,4 +23,6 @@ public interface Batch2Service {
     void batch2CrawlUrlDeleteAll();
 
     void deleteBatch2DataSelect(String idSelect);
+
+    List<Integer> getBatch2ExecutionId(String robotId);
 }

@@ -90,4 +90,9 @@ public class Batch2ServicesImpl implements Batch2Service {
         }
     }
 
+    @Override
+    public List<Integer> getBatch2ExecutionId(String robotId) {
+        return batch2Repository.getDistinctExecutionId(robotId);
+    }
+
 }

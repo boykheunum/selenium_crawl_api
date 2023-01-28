@@ -71,8 +71,8 @@ function dataForChart(data) {
     hacom.sort(function (a, b) {return b.price - a.price});
     let limit = hacom.length < 10 ? hacom.length : 10;
     for (let i = 0; i < limit; i++) {
-        if(hacom[i].productName != null && hacom[i].productName != undefined) {
-            hacomBar.data.labels.push(hacom[i].productName);
+        if(hacom[i].product_name != null && hacom[i].product_name != undefined) {
+            hacomBar.data.labels.push(hacom[i].product_name);
         } else {
             hacomBar.data.labels.push(hacom[i].productKey);
         }
@@ -86,8 +86,8 @@ function dataForChart(data) {
     ncpc.sort(function (a, b) {return b.price - a.price});
     limit = ncpc.length < 10 ? ncpc.length : 10;
     for (let i = 0; i < limit; i++) {
-        if(ncpc[i].productName != null && ncpc[i].productName != undefined) {
-            ncpcBar.data.labels.push(ncpc[i].productName);
+        if(ncpc[i].product_name != null && ncpc[i].product_name != undefined) {
+            ncpcBar.data.labels.push(ncpc[i].product_name);
         } else {
             ncpcBar.data.labels.push(ncpc[i].productKey);
         }

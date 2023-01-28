@@ -64,7 +64,7 @@ public class Hacom {
         List<ResponseBath1ResultDto> getBatch1Result = batch1Service.Batch1Result(robotId);
         model.addAttribute("batch1Result", getBatch1Result);
         model.addAttribute("type", robotId);
-        model.addAttribute("executionIds", batch1Service.getBatch1ExecutionId());
+        model.addAttribute("executionIds", batch1Service.getBatch1ExecutionId(robotId));
         return new ModelAndView("filter/Batch1HacomResult");
     }
 
@@ -139,5 +139,57 @@ public class Hacom {
     @PostMapping("/batch2/delete_select_url_crawl")
     public void batch2DeleteSelectUrlCrawl(@RequestBody(required = false) String listId) {
         batch2Service.deleteBatch2DataSelect(listId);
+    }
+
+    @PostMapping("get_execution_ids")
+    public List<Integer> getExecutionIdsByRobotBatch(@RequestBody RequestAllBatchFilterDto dto) {
+        try {
+            int batchNum = Integer.parseInt(dto.getBatch());
+            String robot = dto.getRobot();
+            if (robot.equals("HACOM") || robot.equals("NCPC")) {
+                if (batchNum == 2) {
+                    robot += "0" + batchNum;
+                    return batch2Service.getBatch2ExecutionId(robot);
+                } else if (batchNum == 3) {
+                    robot += "0" + batchNum;
+                    return batch3Service.getBatch3ExecutionId(robot);
+                } else {
+                    return batch1Service.getBatch1ExecutionId(robot);
+                }
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    @PostMapping("get_filter_batch_results")
+    public Object getResultsByRobotBatchExecutionid(@RequestBody RequestAllBatchFilterDto requestDto) {
+        try {
+            int batchNum = Integer.parseInt(requestDto.getBatch());
+            String robot = requestDto.getRobot();
+            if (robot.equals("HACOM") || robot.equals("NCPC")) {
+                if (batchNum == 2) {
+                    robot += "0" + batchNum;
+                    ResponseBatch2ResultDto dto = new ResponseBatch2ResultDto();
+                    dto.setRobotId(robot);
+                    dto.setExecutionId(requestDto.getExecutionId());
+                    return batch2Service.getListBatch2ResultFilter(dto);
+                } else if (batchNum == 3) {
+                    robot += "0" + batchNum;
+                    ResponseBatch3ResultDto dto = new ResponseBatch3ResultDto();
+                    dto.setRobotId(robot);
+                    dto.setExecutionId(requestDto.getExecutionId() + "");
+                    return batch3Service.getListBatch3ResultFilter(dto);
+                } else {
+                    RequestFilterUrlBatch1CheckboxDto dto = new RequestFilterUrlBatch1CheckboxDto();
+                    dto.setRobotId(robot);
+                    dto.setExecutionId(requestDto.getExecutionId());
+                    List<ResponseBath1ResultDto> result = batch1Service.getBatch1ResultFilter(dto);
+                    return result;
+                }
+            }
+        } catch (Exception e) {
+        }
+        return null;
     }
 }

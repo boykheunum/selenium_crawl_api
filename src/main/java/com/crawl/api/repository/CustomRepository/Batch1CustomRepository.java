@@ -94,9 +94,9 @@ public class Batch1CustomRepository extends BaseRepositoryCustom {
         StringBuilder sb = new StringBuilder();
         Map<String, Object> params = new HashMap<String, Object>();
         sb.append("SELECT robot_id AS robotId, category_name AS categoryName, execution_id AS executionId, url, " +
-                "add_date AS addDate, upd_date AS updDate FROM tbl_batch1_crawl_result");
+                "add_date AS addDate, upd_date AS updDate FROM tbl_batch1_crawl_result ");
         if (dto != null) {
-            sb.append("WHERE 1 ");
+            sb.append(" WHERE 1 ");
             if (dto.getRobotId() != null && !dto.getRobotId().equals("")) {
                 sb.append("AND robot_id = :robotId ");
                 params.put("robotId", dto.getRobotId());

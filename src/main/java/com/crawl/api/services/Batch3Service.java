@@ -14,4 +14,6 @@ public interface Batch3Service {
     List<ResponseBatch3ResultDto> getChartData();
 
     List<ResponseBatch3ResultDto> getListBatch3ResultFilter(ResponseBatch3ResultDto dto);
+
+    List<Integer> getBatch3ExecutionId(String robotId);
 }
