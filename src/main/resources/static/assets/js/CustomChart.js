@@ -23,10 +23,10 @@ function dataForChart(data) {
         data[i].executionId = parseInt(data[i].executionId);
         data[i].price = numberFormatPrice(data[i].price);
         data[i].view = parseInt(data[i].view);
-        if (data[i].robotId === "HACOM03") {
+        if (data[i].robot_id === "HACOM03") {
             hacom.push(data[i]);
             str = "hacom";
-        } else if (data[i].robotId === "NCPC03") {
+        } else if (data[i].robot_id === "NCPC03") {
             ncpc.push(data[i]);
             str = "ncpc";
         }
