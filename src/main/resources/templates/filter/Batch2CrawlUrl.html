@@ -2,215 +2,161 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Bootstrap Admin Template : Binary Admin</title>
-  <!-- BOOTSTRAP STYLES-->
-  <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
-  <!-- FONTAWESOME STYLES-->
-  <link th:href="@{/assets/css/font-awesome.css}" rel="stylesheet"/>
-  <!-- MORRIS CHART STYLES-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link th:href="@{/assets/css/font-awesome.css}" rel="stylesheet"/>
+    <!-- MORRIS CHART STYLES-->
 
-  <!-- CUSTOM STYLES-->
-  <link th:href="@{/assets/css/custom.css}" rel="stylesheet"/>
-  <!-- GOOGLE FONTS-->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-  <!-- TABLE STYLES-->
-  <link th:href="@{/assets/js/dataTables/dataTables.bootstrap.css}" rel="stylesheet"/>
+    <!-- CUSTOM STYLES-->
+    <link th:href="@{/assets/css/custom.css}" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <!-- TABLE STYLES-->
+    <link th:href="@{/assets/js/dataTables/dataTables.bootstrap.css}" rel="stylesheet"/>
 </head>
 
 <body>
 <div id="wrapper">
-  <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Binary admin</a>
-    </div>
-  </nav>
-  <!-- /. NAV TOP  -->
-  <nav class="navbar-default navbar-side" role="navigation">
-    <div class="sidebar-collapse">
-      <ul class="nav" id="main-menu">
-        <li class="text-center">
-          <img th:src="@{/assets/img/find_user.png}" class="user-image img-responsive"/>
-        </li>
-        <li>
-          <a th:href="@{/hacom/chart}"><i class="fa fa-bar-chart-o fa-3x"></i> Biểu đồ</a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-table fa-3x"></i> Chi tiết các bảng<span
-                  class="fa arrow"></span></a>
-          <ul class="nav nav-second-level">
-            <li>
-              <a href="#">Kết quả batch 1</a>
-              <ul class="nav nav-third-level">
-                <li>
-                  <a th:href="@{/hacom/batch1/result?type=3}">Tất cả</a>
-                </li>
-                <li>
-                  <a th:href="@{/hacom/batch1/result?type=1}">Hacom</a>
-                </li>
-                <li>
-                  <a th:href="@{/hacom/batch1/result?type=2}">Nguyen Cong PC</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Kết quả batch 2</a>
-              <ul class="nav nav-third-level">
-                <li>
-                  <a th:href="@{/hacom/batch2/result?type=3}">Tất cả</a>
-                </li>
-                <li>
-                  <a th:href="@{/hacom/batch2/result?type=1}">Hacom</a>
-                </li>
-                <li>
-                  <a th:href="@{/hacom/batch2/result?type=2}">Nguyen Cong PC</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Kết quả batch 3<span class="fa arrow"></span></a>
-              <ul class="nav nav-third-level">
-                <li>
-                  <a th:href="@{/hacom/batch3/result?type=3}">Tất cả</a>
-                </li>
-                <li>
-                  <a th:href="@{/hacom/batch3/result?type=1}">Hacom</a>
-                </li>
-                <li>
-                  <a th:href="@{/hacom/batch3/result?type=2}">Nguyen Cong PC</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-    </div>
-
-  </nav>
-  <!-- /. NAV SIDE  -->
-  <div id="page-wrapper">
-    <div id="page-inner">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Urls crawl batch 2</h2>
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Binary admin</a>
         </div>
-      </div>
-      <!-- /. ROW  -->
-      <hr/>
-<!--      <div class="row">-->
-<!--        <div class="col-md-12">-->
-<!--&lt;!&ndash;          <div th:text="${type}" hidden id="robotType"></div>&ndash;&gt;-->
-<!--          <div role="form">-->
-<!--            <div class="form-group col-md-6">-->
-<!--              <label>Thương hiệu</label>-->
-<!--              <div class="radio">-->
-<!--                <label>-->
-<!--                  <input type="radio" name="brandsRadios" value="" checked/>Tất cả-->
-<!--                </label>-->
-<!--              </div>-->
-<!--              <div class="radio">-->
-<!--                <label>-->
-<!--                  <input type="radio" name="brandsRadios" value="acer" />ACER-->
-<!--                </label>-->
-<!--              </div>-->
-<!--              <div class="radio">-->
-<!--                <label>-->
-<!--                  <input type="radio" name="brandsRadios" value="asus"/>ASUS-->
-<!--                </label>-->
-<!--              </div>-->
-<!--              <div class="radio">-->
-<!--                <label>-->
-<!--                  <input type="radio" name="brandsRadios" value="dell"/>DELL-->
-<!--                </label>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="form-group col-md-6">-->
-<!--              <label>Màu sắc</label>-->
-<!--              <div class="radio">-->
-<!--                <label>-->
-<!--                  <input type="radio" name="colorRadios" value="" checked/>Tất cả-->
-<!--                </label>-->
-<!--              </div>-->
-<!--              <div class="radio">-->
-<!--                <label>-->
-<!--                  <input type="radio" name="colorRadios" value="Đen" />Đen-->
-<!--                </label>-->
-<!--              </div>-->
-<!--              <div class="radio">-->
-<!--                <label>-->
-<!--                  <input type="radio" name="colorRadios" value="Xám"/>Xám-->
-<!--                </label>-->
-<!--              </div>-->
-<!--              <div class="radio">-->
-<!--                <label>-->
-<!--                  <input type="radio" name="colorRadios" value="vàng"/>Vàng-->
-<!--                </label>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <button class="btn btn-primary" id="checkboxSubmit" style="margin-left: 5rem">Xác nhận</button>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      &lt;!&ndash; /. ROW  &ndash;&gt;-->
-<!--      <hr/>-->
+    </nav>
+    <!-- /. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li class="text-center">
+                    <img th:src="@{/assets/img/find_user.png}" class="user-image img-responsive"/>
+                </li>
+                <li>
+                    <a th:href="@{/hacom/chart}"><i class="fa fa-bar-chart-o fa-3x"></i> Biểu đồ</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-table fa-3x"></i> Chi tiết các bảng<span
+                            class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">Kết quả batch 1</a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a th:href="@{/hacom/batch1/result?type=3}">Tất cả</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/hacom/batch1/result?type=1}">Hacom</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/hacom/batch1/result?type=2}">Nguyen Cong PC</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Kết quả batch 2</a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a th:href="@{/hacom/batch2/result?type=3}">Tất cả</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/hacom/batch2/result?type=1}">Hacom</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/hacom/batch2/result?type=2}">Nguyen Cong PC</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Kết quả batch 3<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a th:href="@{/hacom/batch3/result?type=3}">Tất cả</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/hacom/batch3/result?type=1}">Hacom</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/hacom/batch3/result?type=2}">Nguyen Cong PC</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-      <div class="row">
-        <div class="col-md-12">
-          <!-- Advanced Tables -->
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Danh sách kết quả
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Urls crawl batch 2</h2>
+                </div>
             </div>
-            <div class="panel-body">
-              <div class="table-responsive" id="tableResponsive">
-                <table class="table table-striped table-bordered table-hover"
-                       id="dataTables-example">
-                  <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Execution_ID</th>
-                    <th>Robot_ID</th>
-                    <th>Url</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <th:block th:each="item : ${batch2CrawlUrl}">
-                    <tr class="odd gradeX">
-                      <td th:text="${item.id}"></td>
-                      <td th:text="${item.executionId}"></td>
-                      <td th:text="${item.robotId}"></td>
-                      <td th:text="${item.url}"></td>
-                    </tr>
-                  </th:block>
-                  </tbody>
-                </table>
-              </div>
+            <!-- /. ROW  -->
+            <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Danh sách kết quả
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive" id="tableResponsive">
+                                <table class="table table-striped table-bordered table-hover"
+                                       id="dataTables-example">
+                                    <thead>
+                                    <tr>
+                                        <td></td>
+                                        <th>ID</th>
+                                        <th>Execution_ID</th>
+                                        <th>Robot_ID</th>
+                                        <th>Url</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <th:block th:each="item : ${batch2CrawlUrl}">
+                                        <tr class="odd gradeX">
+                                            <td><input type="checkbox" th:id="${item.id}"
+                                                       th:value="${item.id}" th:onclick="checkedData([[${item.id}]])"></td>
+                                            <td th:text="${item.id}"></td>
+                                            <td th:text="${item.executionId}"></td>
+                                            <td th:text="${item.robotId}"></td>
+                                            <td th:text="${item.url}"></td>
+                                        </tr>
+                                    </th:block>
+                                    </tbody>
+                                </table>
+                            </div>
 
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
             </div>
-          </div>
-          <!--End Advanced Tables -->
+            <!--start button-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <button class="btn btn-danger" id="deleteAll">Xóa toàn bộ</button>
+                    <button class="btn btn-danger" id="deleteSelected">Xóa bản ghi đã chọn</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <!--start button-->
-      <div class="row">
-        <div class="col-md-12">
-          <!-- Advanced Tables -->
-          <button class="btn btn-primary" id="export_csv" >Export File CSV</button>
-          <button class="btn btn-primary" id="export_excel">Export File EXCEL</button>
-        </div>
-      </div>
-    </div>
 
-  </div>
-  <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE INNER  -->
 </div>
 <!-- /. PAGE WRAPPER  -->
 <!-- /. WRAPPER  -->
@@ -225,9 +171,36 @@
 <script th:src="@{/assets/js/dataTables/jquery.dataTables.js}"></script>
 <script th:src="@{/assets/js/dataTables/dataTables.bootstrap.js}"></script>
 <script>
-  $(document).ready(function () {
-    $('#dataTables-example').dataTable();
-  });
+    var arr = [];
+    function checkedData(data){
+        arr.push(data);
+    }
+    $(document).ready(function () {
+        $('#deleteAll').click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/hacom/batch2/delete_all_url_crawl',
+                contentType: "application/json",
+                success: function (){
+                    location.reload();
+                }
+            })
+        })
+        $('#deleteSelected').click(function () {
+            let dt = arr.toString();
+            console.log(arr);
+            $.ajax({
+                type: 'POST',
+                url: '/hacom/batch2/delete_select_url_crawl',
+                contentType: "application/json",
+                data: dt,
+                success: function (){
+                    location.reload();
+                }
+            })
+        })
+        $('#dataTables-example').dataTable();
+    });
 </script>
 <!-- CUSTOM SCRIPTS -->
 <!--<script th:src="@{/assets/js/custom.js}"></script>-->

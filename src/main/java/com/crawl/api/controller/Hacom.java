@@ -69,7 +69,7 @@ public class Hacom {
     }
 
     @PostMapping("/batch1/result/json")
-    public final List<ResponseBath1ResultDto> batch1ResultFilterJson(@RequestBody RequestFilterUrlBatch1CheckboxDto dto){
+    public final List<ResponseBath1ResultDto> batch1ResultFilterJson(@RequestBody RequestFilterUrlBatch1CheckboxDto dto) {
         return batch1Service.getBatch1ResultFilter(dto);
     }
 
@@ -81,7 +81,7 @@ public class Hacom {
     }
 
     @GetMapping("/batch2/result")
-    public final ModelAndView batch2Result(@RequestParam("type") Integer robotId, Model model){
+    public final ModelAndView batch2Result(@RequestParam("type") Integer robotId, Model model) {
         List<ResponseBatch2ResultDto> getBatch2Result = batch2Service.getListBatch2Result(robotId);
         model.addAttribute("batch2Result", getBatch2Result);
         model.addAttribute("type", robotId);
@@ -89,12 +89,12 @@ public class Hacom {
     }
 
     @PostMapping("/batch2/result/json")
-    public final List<ResponseBatch2ResultDto> batch2ResultFilterJson(@RequestBody ResponseBatch2ResultDto dto){
+    public final List<ResponseBatch2ResultDto> batch2ResultFilterJson(@RequestBody ResponseBatch2ResultDto dto) {
         return batch2Service.getListBatch2ResultFilter(dto);
     }
 
     @GetMapping("/batch3/result")
-    public final ModelAndView batch3Result(@RequestParam("type") Integer robotId, Model model){
+    public final ModelAndView batch3Result(@RequestParam("type") Integer robotId, Model model) {
         List<ResponseBatch3ResultDto> getBatch3Result = batch3Service.getListBatch3Result(robotId);
         model.addAttribute("batch3Result", getBatch3Result);
         model.addAttribute("type", robotId);
@@ -102,32 +102,42 @@ public class Hacom {
     }
 
     @PostMapping("batch3/result/json")
-    public final List<ResponseBatch3ResultDto> batch3ResultFilterJson(@RequestBody ResponseBatch3ResultDto dto){
+    public final List<ResponseBatch3ResultDto> batch3ResultFilterJson(@RequestBody ResponseBatch3ResultDto dto) {
         return batch3Service.getListBatch3ResultFilter(dto);
     }
 
     @GetMapping("/chart")
-    public ModelAndView chart(){
+    public ModelAndView chart() {
         return new ModelAndView("statistic/chart");
     }
 
     @PostMapping("/chart/get_chart_data")
-    public List<ResponseBatch3ResultDto> getChartData(){
+    public List<ResponseBatch3ResultDto> getChartData() {
         return batch3Service.getChartData();
     }
 
     @PostMapping("/excel_export")
-    public void execlExport(@RequestBody RequestDataExportDto data){
+    public void execlExport(@RequestBody RequestDataExportDto data) {
         batch1Service.exportBatch1Excel(data);
     }
 
     @PostMapping("/csv_export")
-    public void csvExport(@RequestBody RequestDataExportDto data){
+    public void csvExport(@RequestBody RequestDataExportDto data) {
         batch1Service.exportBatch1Csv(data);
     }
 
     @GetMapping("data_input_filter")
-    public ModelAndView dataInputFilter(){
+    public ModelAndView dataInputFilter() {
         return new ModelAndView("filter/FilterDataInput");
+    }
+
+    @PostMapping("/batch2/delete_all_url_crawl")
+    public void batch2CrawlUrlDeleteAll() {
+        batch2Service.batch2CrawlUrlDeleteAll();
+    }
+
+    @PostMapping("/batch2/delete_select_url_crawl")
+    public void batch2DeleteSelectUrlCrawl(@RequestBody(required = false) String listId) {
+        batch2Service.deleteBatch2DataSelect(listId);
     }
 }
