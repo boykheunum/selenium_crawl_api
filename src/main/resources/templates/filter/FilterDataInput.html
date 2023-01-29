@@ -30,11 +30,6 @@
             </button>
             <a class="navbar-brand" href="index.html">Binary admin</a>
         </div>
-        <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a>
-        </div>
     </nav>
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
@@ -93,6 +88,12 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                             </ul>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a th:href="@{/hacom/data_input_filter}"><i class="fa fa-table fa-3x"></i> Filter data input</a>
+                </li>
+                <li>
+                    <a th:href="@{/hacom/batch2/crawl-url}"><i class="fa fa-table fa-3x"></i> Urls crawl batch 2</a>
                 </li>
             </ul>
 
