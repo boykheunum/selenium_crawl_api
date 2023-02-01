@@ -26,26 +26,12 @@ public class Hacom {
     @Autowired
     private Batch3Service batch3Service;
 
-//    @PostMapping("filter/sql-batch2")
-//    public final String filterUrlForBatch2(@RequestBody RequestFilterUrlBatch1Dto dto) {
-//        batch2Service.deleteAllBatch2CrawlUrls();
-//        batch1Service.Batch2UrlFilter(dto);
-//        return "Hello world";
-//    }
-
     @PostMapping("filter/sql-batch2/checkbox")
     public final String filterUrlForBatch2Checkbox(@RequestBody RequestFilterUrlBatch1CheckboxDto dto) {
         batch2Service.deleteAllBatch2CrawlUrls();
         batch1Service.Batch2UrlFilterCheckbox(dto);
         return "Hello world";
     }
-
-//    @PostMapping("filter/sql-batch3")
-//    public final String filterUrlForBatch3(@RequestBody RequestFilterUrlBatch2Dto dto) {
-//        batch3Service.deleteAllBatch3CrawlLists();
-//        batch2Service.Batch3UrlFilter(dto);
-//        return "complete filter url batch 3";
-//    }
 
     @PostMapping("filter/sql-batch3/checkbox")
     public final String filterUrlForBatch3Checkbox(@RequestBody RequestFilterUrlBatch2CheckboxDto dto) {
