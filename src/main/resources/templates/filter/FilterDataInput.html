@@ -193,7 +193,12 @@
                     str += "<option value='" + data[i] + "'>" + data[i] + "</option>";
                 }
                 str += "</select></div><div class='col-sm-4'>" +
-                    "<button class='btn btn-primary' id='checkboxSubmit' onclick='getFilterResult()'>Lọc kết quả</button></div>";
+                    "<button class='btn btn-primary' id='checkboxSubmit' onclick='getFilterResult()'>Lọc kết quả</button>";
+                if (search.batch == 1 || search.batch == 2) {
+                    str += "<button class='btn btn-primary' style='margin-left: 1rem' id='checkboxInsert' " +
+                        "onclick='inputFilterData()'>Input data</button>";
+                }
+                str += "</div>";
             }
             $("#filterByBatchAndRobot").html(str);
         }).fail(function( jqXHR, textStatus ) {
@@ -263,6 +268,43 @@
         }).fail(function( jqXHR, textStatus ) {
             console.log( "Request failed: " + textStatus );
         });
+    }
+    function inputFilterData() {
+        let batch = parseInt($("#batchSelection").val());
+        let search = {"robot_id": $("#robotSelection").val(),
+            "execution_id": $("#executionIdsSelection").val()};
+        if (batch === 1) {
+            $.ajax({
+                type: "POST",
+                contentType : "application/json",
+                url: "/hacom/filter/sql-batch2/checkbox",
+                data: JSON.stringify(search),
+                dataType : 'json',
+                success: function () {
+                    console.log("a");
+                },
+                error: function (jqXHR, exception) {
+                    console.log(jqXHR.responseText);
+                }
+            });
+            alert("success batch 2 crawl url");
+        } else if (batch === 2) {
+            search.robot_id += "02";
+            $.ajax({
+                type: "POST",
+                contentType : "application/json",
+                url: "/hacom/filter/sql-batch3/checkbox",
+                data: JSON.stringify(search),
+                dataType : 'json',
+                success: function () {
+                    console.log("a");
+                },
+                error: function (jqXHR, exception) {
+                    console.log(jqXHR.responseText);
+                }
+            });
+            alert("success batch 3 crawl list");
+        }
     }
 </script>
 <!-- CUSTOM SCRIPTS -->
